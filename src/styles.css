@@ -1,2 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
+
+
+@keyframes scale {
+	0% {
+		transform: scale(2);
+		opacity: 0;
+		box-shadow: 0 0 60px rgba(148, 163, 184, 0.8);
+	}
+	50% {
+		transform: translate(0, -4px) scale(1);
+		opacity: 1;
+		box-shadow: 0 10px 30px rgba(148, 163, 184, 0.9);
+	}
+	100% {
+		transform: translate(0, 4px) scale(0.3);
+		opacity: 0;
+		box-shadow: 0 16px 40px rgba(15, 15, 14, 0);
+	}
+}

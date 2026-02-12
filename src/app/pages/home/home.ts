@@ -1,46 +1,18 @@
 import { Component, signal, inject } from '@angular/core';
 import { DOCUMENT, NgOptimizedImage } from '@angular/common';
-import { RouterLink } from "@angular/router";
-
-interface NavigationItem {
-  id: number;
-  label: string;
-  route: string;
-  fragment?: string;
-}
-interface Skill {
-  id: number;
-  name: string;
-  description: string;
-}
-interface Technologies {
-  id: number;
-  name: string;
-  category: string;
-}
-interface FeaturedProject {
-  id: number;
-  name: string;
-  tagline: string;
-  description: string;
-  stack: string[];
-}
+import { CardFlipComponent } from '../../shared/components/card-flip/card-flip.component';
+import { HeaderComponent } from '../../shared/components/header/header.component';
+import { Skill, Technologies, FeaturedProject } from '../../core/models/portfolio.models';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, NgOptimizedImage],
+  imports: [NgOptimizedImage, CardFlipComponent, HeaderComponent ],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
 
   private readonly document = inject(DOCUMENT);
-
-  readonly navigation= signal<NavigationItem[]>([
-    {id:1, label: 'Acerca de mi', route: '/', fragment:undefined },
-    {id:2, label: 'Proyectos', route: '/', fragment:undefined },
-    {id:3, label: 'Experiencia', route: '/', fragment:undefined },
-  ]);
 
   readonly skills= signal<Skill[]>([
      {

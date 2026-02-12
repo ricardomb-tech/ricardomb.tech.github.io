@@ -1,0 +1,55 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+svg {
+  cursor: grab;
+  transition: opacity 0.3s ease;
+}
+
+svg:active {
+  cursor: grabbing;
+}
+
+/* Estilos para los markers */
+.marker {
+  transition: opacity 0.2s ease, r 0.2s ease;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));
+}
+
+.marker-glow {
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.marker-label {
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.1;
+    r: 25px;
+  }
+  50% {
+    opacity: 0.25;
+    r: 60px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+svg {
+  animation: fadeIn 1s ease-out;
+}

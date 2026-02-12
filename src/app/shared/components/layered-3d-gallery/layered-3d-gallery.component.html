@@ -1,0 +1,26 @@
+<!-- layered-3d-gallery.component.html -->
+<div class="gallery-3d" [style.perspective.px]="perspective()">
+  <div class="gallery-inner" [style.transform]="galleryTransform()">
+    @for (img of images(); track trackByIndex($index); let i = $index) {
+      <div
+        class="gallery-layer"
+        [style.transform]="layerTransforms()[i].transform"
+        [style.z-index]="layerTransforms()[i].zIndex"
+        [style.opacity]="layerTransforms()[i].opacity"
+        [class.active]="activeIndex() === i"
+        (mouseenter)="activeIndex.set(i)"
+      >
+        <img
+          [src]="img.src"
+          [alt]="img.alt"
+          class="gallery-img"
+          loading="lazy"
+          [attr.fetchpriority]="i < 3 ? 'high' : 'auto'"
+        />
+        @if (activeIndex() === i) {
+          <div class="gallery-desc">{{ img.description }}</div>
+        }
+      </div>
+    }
+  </div>
+</div>

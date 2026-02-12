@@ -1,0 +1,118 @@
+<div
+  class="relative h-full w-full [transform-style:preserve-3d] transition-all duration-700"
+  [style.transform]="'rotateY(' + (isFlipped() ? '180deg' : '0deg') + ')'"
+>
+  <!-- Front side -->
+  <div
+    class="absolute inset-0 h-full w-full overflow-hidden rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/50 shadow-xs dark:shadow-lg transition-all duration-700 group-hover:shadow-lg dark:group-hover:shadow-xl"
+    [style.backfaceVisibility]="'hidden'"
+    [style.transform]="'rotateY(0deg)'"
+    [style.opacity]="frontOpacity()"
+  >
+    <div class="relative h-full w-full">
+      <!-- Glow central -->
+      <div class="absolute inset-0 flex items-start justify-center pt-15">
+        <div
+          class="relative flex h-[120px] w-[220px] items-center justify-center"
+        >
+          @for (circle of circles; track $index) {
+          <div
+            class="absolute h-[50px] w-[50px] rounded-[140px] bg-transparent opacity-0 shadow-[0_0_50px_rgba(148,163,184,0.5)]"
+            [style.animation]="'scale 3s linear infinite'"
+            [style.animationDelay]="($index * 0.25) + 's'"
+          ></div>
+          }
+        </div>
+      </div>
+
+      <!-- Texto inferior -->
+      <div class="absolute inset-x-0 bottom-0 p-5">
+        <div class="flex items-center justify-between gap-4">
+          <div class="space-y-1.5">
+            <h3
+              class="font-semibold text-lg text-zinc-900 leading-snug tracking-tighter transition-all duration-500 ease-out-expo group-hover:-translate-y-1 dark:text-white"
+            >
+              {{ title() }}
+            </h3>
+            <p
+              class="line-clamp-2 text-sm text-zinc-600 tracking-tight transition-all delay-[50ms] duration-500 ease-out-expo group-hover:-translate-y-1 dark:text-zinc-200"
+            >
+              {{ subtitle() }}
+            </p>
+          </div>
+
+          <!-- Botón/icono inferior derecho -->
+          <button
+            type="button"
+            class="group/icon relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-300 via-zinc-400 to-zinc-500 text-black shadow-[0_10px_30px_rgba(148,163,184,0.7)] transition-transform duration-300 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400/70"
+          >
+            <span
+              class="relative z-10 text-base leading-none text-black transition-transform duration-300 group-hover/icon:-translate-y-[1px] group-hover/icon:translate-x-[1px]"
+              aria-hidden="true"
+              >↻</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back side -->
+  <div
+    class="absolute inset-0 h-full w-full rounded-2xl p-6 bg-gradient-to-b from-zinc-100 to-white dark:from-zinc-900 dark:to-black border border-zinc-200 dark:border-zinc-800 shadow-xs dark:shadow-lg flex flex-col transition-all duration-700 group-hover:shadow-lg dark:group-hover:shadow-xl"
+    [style.backfaceVisibility]="'hidden'"
+    [style.transform]="'rotateY(180deg)'"
+    [style.opacity]="backOpacity()"
+  >
+    <div class="flex-1 space-y-6">
+      <div class="space-y-2">
+        <h3
+          class="font-semibold text-lg text-zinc-900 leading-snug tracking-tight transition-all duration-500 ease-out-expo group-hover:-translate-y-0.5 dark:text-white"
+        >
+          {{ title() }}
+        </h3>
+        <p
+          class="line-clamp-2 text-sm text-zinc-600 tracking-tight transition-all duration-500 ease-out-expo group-hover:-translate-y-0.5 dark:text-zinc-400"
+        >
+          {{ description() }}
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        @for (feature of features(); track feature; let index = $index) {
+        <div
+          class="flex items-center gap-2 text-sm text-zinc-700 transition-all duration-500 dark:text-zinc-300"
+          [style.transform]="isFlipped() ? 'translateX(0)' : 'translateX(-10px)'"
+          [style.opacity]="isFlipped() ? 1 : 0"
+          [style.transitionDelay]="(index * 100 + 200) + 'ms'"
+        >
+          <span class="text-zinc-400">→</span>
+          <span>{{ feature }}</span>
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="mt-6 border-t border-zinc-200 pt-6 dark:border-zinc-800">
+      <div
+        class="group/start relative flex items-center justify-between -m-3 rounded-xl p-3 bg-gradient-to-r from-zinc-100 via-zinc-100 to-zinc-100 dark:from-zinc-800 dark:via-zinc-800 dark:to-zinc-800 transition-all duration-300 hover:from-0% hover:via-100% hover:to-100% hover:scale-[1.02] hover:cursor-pointer"
+      >
+        <span
+          class="font-medium text-sm text-zinc-900 transition-colors duration-300 group-hover/start:text-zinc-400 dark:text-white dark:group-hover/start:text-zinc-300"
+        >
+          Start today
+        </span>
+        <div class="group/icon relative">
+          <div
+            class="absolute inset-[-6px] scale-90 rounded-lg bg-gradient-to-br from-zinc-400/30 via-zinc-400/20 to-transparent opacity-0 transition-all duration-300 group-hover/start:scale-100 group-hover/start:opacity-100"
+          ></div>
+          <span
+            class="relative z-10 block h-4 w-4 text-zinc-400 text-base leading-4 text-center transition-all duration-300 group-hover/start:translate-x-0.5 group-hover/start:scale-110"
+          >
+            →
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

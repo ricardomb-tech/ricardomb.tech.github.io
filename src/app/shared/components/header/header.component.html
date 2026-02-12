@@ -1,0 +1,21 @@
+<header
+  class="fixed inset-x-0 top-0 z-50 w-full border-b border-slate-800 bg-black/80 backdrop-blur"
+>
+  <div class="flex w-full items-center justify-between px-8 py-3">
+    <a class="text-xl font-semibold tracking-tight" routerLink="/home">
+      <span class="font-bold text-white">RicardoMB</span
+      ><span class="font-normal text-slate-400">.tech</span>
+    </a>
+
+    <nav
+      class="flex items-center gap-10 text-sm"
+      aria-label="Navegacion principal"
+    >
+      @for (item of navigation(); track item.id) {
+      <a class="text-slate-300" [routerLink]="item.route">
+        {{ item.label }}
+      </a>
+      }
+    </nav>
+  </div>
+</header>

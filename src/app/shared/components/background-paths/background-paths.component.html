@@ -1,0 +1,78 @@
+<div [class]="containerClasses()">
+  <svg
+    viewBox="0 0 1000 700"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="absolute inset-0 h-full w-full"
+  >
+    <defs>
+      <linearGradient id="circuitGradientLight">
+        <stop offset="0%" stop-color="#10b981" />
+        <stop offset="50%" stop-color="#3b82f6" />
+        <stop offset="100%" stop-color="#8b5cf6" />
+      </linearGradient>
+      <linearGradient id="circuitGradientDark">
+        <stop offset="0%" stop-color="#00ff41" />
+        <stop offset="50%" stop-color="#00d9ff" />
+        <stop offset="100%" stop-color="#7c3aed" />
+      </linearGradient>
+      <filter id="circuitGlowLight">
+        <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+      <filter id="circuitGlowDark">
+        <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    @for (path of circuits; track $index; let index = $index) {
+    <path
+      [attr.d]="path"
+      stroke="url(#circuitGradientLight)"
+      stroke-width="3"
+      fill="none"
+      filter="url(#circuitGlowLight)"
+      stroke-linecap="round"
+      class="circuit-path dark:stroke-[url(#circuitGradientDark)] dark:[filter:url(#circuitGlowDark)]"
+      [style.animationDuration]="durationForPath(index)"
+      [style.animationDelay]="delayForPath(index)"
+    ></path>
+    }
+
+    @for (node of nodes; track $index; let index = $index) {
+    <g>
+      <circle
+        [attr.cx]="node.x"
+        [attr.cy]="node.y"
+        r="6"
+        fill="url(#circuitGradientLight)"
+        filter="url(#circuitGlowLight)"
+        class="node-pulse dark:fill-[url(#circuitGradientDark)] dark:[filter:url(#circuitGlowDark)]"
+        [style.animationDelay]="delayForNode(index)"
+      ></circle>
+      <circle
+        [attr.cx]="node.x"
+        [attr.cy]="node.y"
+        r="12"
+        fill="none"
+        stroke="url(#circuitGradientLight)"
+        stroke-width="1"
+        opacity="0.5"
+        class="node-ring dark:stroke-[url(#circuitGradientDark)]"
+        [style.animationDelay]="delayForNode(index)"
+      ></circle>
+    </g>
+    }
+  </svg>
+
+  <div class="relative z-10 flex h-full w-full items-center justify-center">
+    <ng-content></ng-content>
+  </div>
+</div>

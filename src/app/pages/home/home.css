@@ -17,9 +17,19 @@
 	border-radius: 9999px;
 	transform: scale(1.25);
 	transform-origin: center;
-	/* Vertical fade from black to transparent using CSS mask */
-	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
-	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+		/* Circular fade from center to transparent using CSS mask */
+		-webkit-mask-image: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0) 100%
+    );
+		mask-image: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 60%,
+      rgba(0, 0, 0, 0) 100%
+    );
 }
 
 @media (min-width: 768px) {

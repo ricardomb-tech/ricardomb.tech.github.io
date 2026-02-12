@@ -1,0 +1,12 @@
+.shimmer-text {
+  animation: shimmer-text-move 2.5s linear infinite;
+}
+
+@keyframes shimmer-text-move {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}

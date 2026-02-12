@@ -1,20 +1,5 @@
 <div class="bg-black text-white min-h-screen pt-16 md:pt-20 overflow-x-hidden">
-  <!-- Header -->
-  <header class="fixed inset-x-0 top-0 z-50 w-full border-b border-slate-800 bg-black/80 backdrop-blur">
-    <div class="flex w-full items-center justify-between px-8 py-3">
-      <a class="text-xl font-semibold tracking-tight" routerLink="/">
-        <span class="font-bold text-white">RicardoMB</span><span class="font-normal text-slate-400">.tech</span>
-      </a>
-
-      <nav class="flex items-center gap-10 text-sm" aria-label="Navegacion principal">
-        @for (item of navigation(); track item.id) {
-        <a class="text-slate-300" [routerLink]="item.route" [fragment]="item.fragment">
-          {{ item.label }}
-        </a>
-        }
-      </nav>
-    </div>
-  </header>
+  <app-header></app-header>
   <!-- Contenido principal -->
   <main class="mx-auto max-w-7xl px-4 pt-12 pb-20 md:pt-4">
     <!-- Hero -->
@@ -38,8 +23,6 @@
           negocio, datos y dispositivos, con foco en calidad, rendimiento y
           mantenibilidad.
         </p>
-
-
 
         <div class="grid gap-4 text-xs text-slate-300 sm:grid-cols-3">
           <div>
@@ -77,9 +60,12 @@
 
       <!-- Columna imagen / avatar -->
       <div class="flex flex-1 justify-center md:justify-end">
-        <img ngSrc="/assets/image/foto1.png" width="768" height="959" alt="Retrato profesional en blanco y negro"
-          class="hero-photo" />
+        <div class="hero-photo-wrapper" [style.mask-image]="'radial-gradient(circle, black 0%, transparent 70%)'">
+          <img ngSrc="/assets/image/foto1.png" width="768" height="959" alt="Retrato profesional en blanco y negro"
+            class="hero-photo" />
+        </div>
       </div>
+
 
       <!-- Indicador de scroll -->
       <button type="button" class="scroll-indicator" (click)="scrollToSection('proyectos')"
@@ -108,53 +94,74 @@
 
 
 
-    <section class="mx-auto mt-20 max-w-5xl space-y-8" aria-labelledby="value-section-title">
-      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
-        Dónde tiene sentido usar tecnología
-      </p>
+    <section id="proyectos" class="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen"
+      aria-labelledby="value-section-title">
+      <div class="mx-auto max-w-7xl px-4 space-y-8 -mt-16">
+        <div class="grid gap-12 md:grid-cols-2 items-center">
+          <div class="flex justify-center md:justify-start">
+            <div class="hero-photo-wrapper" [style.mask-image]="'radial-gradient(circle, black 0%, transparent 70%)'">
+              <img ngSrc="/assets/image/foto2.png" width="768" height="959" alt="Retrato profesional en blanco y negro"
+                class="hero-photo" />
+            </div>
+          </div>
 
-      <h2 id="value-section-title" class="text-2xl font-semibold tracking-tight md:text-3xl">
-        Problemas en los que la tecnología marca la diferencia
-      </h2>
+          <div class="space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
+              Dónde tiene sentido usar tecnología
+            </p>
 
-      <p class="max-w-3xl text-sm text-slate-400 md:text-base">
-        Trabajo en el punto donde negocio, datos y dispositivos se encuentran.
-        Estas son algunas situaciones donde las soluciones de software e IoT
-        generan impacto real.
-      </p>
+            <h2 id="value-section-title" class="text-3xl font-semibold tracking-tight md:text-5xl">
+              Problemas en los que la tecnología marca la diferencia.
+            </h2>
 
-      <div class="grid gap-6 md:grid-cols-3">
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-          <h3 class="text-sm font-semibold text-white">
-            Productos digitales que escalan
-          </h3>
-          <p class="mt-2 text-xs text-slate-400">
-            Aplicaciones web pensadas para crecer sin perder rendimiento ni
-            mantenibilidad, desde el primer prototipo hasta producción.
-          </p>
-        </article>
+            <p class="max-w-4xl text-base text-slate-400 md:text-xl">
+              La tecnología no es un fin en sí mismo, sino el vehículo para resolver problemas complejos.
+              Mi enfoque se centra en identificar fricciones operativas y transformarlas en ventajas
+              competitivas mediante soluciones digitales a medida.
+            </p>
+          </div>
+        </div>
 
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-          <h3 class="text-sm font-semibold text-white">
-            Sistemas IoT conectando campo y nube
-          </h3>
-          <p class="mt-2 text-xs text-slate-400">
-            Dispositivos, APIs y plataformas cloud trabajando juntos para
-            monitorear, automatizar y tomar decisiones con datos en tiempo casi real.
-          </p>
-        </article>
+        <div class="flex justify-center px-4 mt-12">
+          <div class="grid gap-6 md:grid-cols-3 w-full max-w-6xl md:ml-16">
+            <app-card-flip title="Productos digitales que escalan" subtitle="Arquitecturas pensadas para crecer"
+              description="Aplicaciones web diseñadas para crecer sin perder rendimiento ni mantenibilidad."
+              [features]="['Angular', 'TypeScript', 'Buenas prácticas', 'Escalabilidad']"></app-card-flip>
 
-        <article class="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-          <h3 class="text-sm font-semibold text-white">
-            Procesos repetitivos automatizados
-          </h3>
-          <p class="mt-2 text-xs text-slate-400">
-            Flujos manuales convertidos en servicios y dashboards, reduciendo
-            errores humanos y liberando tiempo para tareas de mayor valor.
-          </p>
-        </article>
+            <app-card-flip title="Sistemas IoT conectando campo y nube" subtitle="Datos en tiempo casi real"
+              description="Dispositivos, APIs y plataformas cloud trabajando juntos para monitorear y automatizar."
+              [features]="['IoT', 'MQTT/HTTP', 'Cloud', 'Monitoreo']"></app-card-flip>
+
+            <app-card-flip title="Procesos repetitivos automatizados" subtitle="Automatización con foco en negocio"
+              description="Flujos manuales convertidos en servicios y dashboards para liberar tiempo de valor."
+              [features]="['Automatización', 'Dashboards', 'APIs', 'Productividad']"></app-card-flip>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section class="relative flex flex-col gap-12 md:flex-row md:items-center pb-20"
+      aria-labelledby="project-hero-title">
+
+      <div class="space-y-8 mx-auto max-w-4xl text-center mt-16">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
+          Proyectos destacados
+        </p>
+
+        <h2 id="project-hero-title" class="text-3xl font-semibold tracking-tight md:text-5xl">
+          Soluciones digitales que he construido.
+        </h2>
+
+        <p class="max-w-4xl text-base text-slate-400 md:text-xl">
+          Desde aplicaciones web hasta sistemas IoT, estos proyectos reflejan mi enfoque en resolver problemas reales
+          con tecnología.
+        </p>
+      </div>
+
+
+
+    </section>
+
   </main>
 
 </div>

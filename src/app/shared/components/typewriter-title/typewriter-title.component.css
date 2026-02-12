@@ -1,0 +1,33 @@
+.typewriter-wrapper {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  width: 18ch; /* o 20ch si quieres más margen */
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.typewriter-text {
+  min-height: 1em;
+  line-height: 1;
+  display: inline-block;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #ffffff;
+  animation: typewriter-cursor-blink 1s linear infinite;
+}
+
+@keyframes typewriter-cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
