@@ -11,7 +11,6 @@ import { Skill, Technologies, FeaturedProject } from '../../core/models/portfoli
   styleUrl: './home.css',
 })
 export class Home {
-
   private readonly document = inject(DOCUMENT);
 
   readonly skills= signal<Skill[]>([
@@ -36,13 +35,40 @@ export class Home {
     { id: 6, name: 'MongoDB', category: 'Database' },
     { id: 7, name: 'PostgreSQL', category: 'Database' },
   ]);
+  readonly bounceImages = signal([
+    {
+      src: 'https://picsum.photos/400/400?grayscale',
+      alt: 'img1',
+      description: 'Desarrollo de habilidades técnicas y blandas'
+    },
+    {
+      src: 'https://picsum.photos/500/500?grayscale',
+      alt: 'img2',
+      description: 'Colaboración en proyectos de código abierto'
+    },
+    {
+      src: 'https://picsum.photos/600/600?grayscale',
+      alt: 'img3',
+      description: 'Participación en comunidades tecnológicas'
+    },
+    {
+      src: 'https://picsum.photos/700/700?grayscale',
+      alt: 'img4',
+      description: 'Mentoría y apoyo a otros desarrolladores'
+    },
+    {
+      src: 'https://picsum.photos/300/300?grayscale',
+      alt: 'img5',
+      description: 'Innovación y aprendizaje continuo'
+    }
+  ]);
 
   readonly featuredProjects = signal<FeaturedProject[]>([
     {
       id: 1,
-      name: 'Mi Proyecto',
-      tagline: 'Proyecto destacado',
-      description: 'Descripción breve del proyecto.',
+      name: 'Project Name',
+      tagline: 'Project tagline',
+      description: 'Project description',
       stack: ['Angular', 'TypeScript', 'TailwindCSS'],
     },
   ]);

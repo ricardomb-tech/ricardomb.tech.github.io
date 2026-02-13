@@ -10,21 +10,22 @@
 
   display: block;
   width: 100%;
+  overflow: hidden;
 }
 
 .gallery-3d {
   position: relative;
   width: 100%;
-  max-width: 1100px;
-  height: 500px;
+  max-width: 1400px;
+  height: 650px;
   margin: 0 auto;
-  perspective: 5000px;
+  perspective: 2000px;
   perspective-origin: 50% 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--gallery-bg);
-  overflow: visible;
+  overflow: hidden;
   isolation: isolate;
 }
 
@@ -33,22 +34,22 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   will-change: transform;
 }
 
 .gallery-layer {
   position: absolute;
-  width: 199px;
-  height: 320px;
+  width: 320px;
+  height: 450px;
   left: 50%;
   top: 50%;
-  margin-left: -99.5px;
-  margin-top: -160px;
+  margin-left: -160px;
+  margin-top: -225px;
   transition:
     transform 0.6s var(--transition-spring),
     opacity 0.35s ease-out,
-    filter 0.35s ease-out;
+    filter 0.35s ease-out,
+    z-index 0s; /* AÑADIDO para transición inmediata de z-index */
   box-shadow:
     -8px 12px 50px var(--layer-shadow-color),
     0 6px 25px rgba(0, 0, 0, 0.7),
@@ -60,11 +61,10 @@
   backface-visibility: hidden;
   will-change: transform, opacity, filter;
   background: #0a0a0a;
-  filter: brightness(0.8);
+  filter: brightness(1);
   contain: layout style paint;
 }
 
-/* Borde lateral para efecto de profundidad */
 .gallery-layer::after {
   content: '';
   position: absolute;
@@ -76,7 +76,6 @@
   transition: opacity 0.3s, width 0.3s;
 }
 
-/* Brillo superior */
 .gallery-layer::before {
   content: '';
   position: absolute;
@@ -89,7 +88,7 @@
 }
 
 .gallery-layer.active {
-  filter: brightness(1.15);
+  filter: brightness(1.2);
   box-shadow:
     -10px 18px 70px rgba(0, 0, 0, 0.95),
     0 12px 50px rgba(0, 0, 0, 0.8),
@@ -113,7 +112,7 @@
   display: block;
   transition: filter 0.35s;
   backface-visibility: hidden;
-  filter: brightness(0.85) contrast(1.05);
+  filter: brightness(1) contrast(1.05);
   user-select: none;
   pointer-events: none;
 }
@@ -161,14 +160,14 @@
 
 @media (max-width: 768px) {
   .gallery-3d {
-    height: 400px;
+    height: 500px;
   }
 
   .gallery-layer {
-    width: 160px;
-    height: 250px;
-    margin-left: -80px;
-    margin-top: -125px;
+    width: 240px;
+    height: 360px;
+    margin-left: -120px;
+    margin-top: -180px;
   }
 
   .gallery-desc {

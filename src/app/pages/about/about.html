@@ -64,20 +64,21 @@
       </h2>
       <div class="flex justify-center items-center w-full py-8">
         <div class="mx-auto flex justify-center items-center" style="max-width: 1600px; width: 100%;">
-          <app-layered-3d-gallery
-            [images]="about3dGallery"
-            [perspective]="2200"
-            [spacing]="260"
-          ></app-layered-3d-gallery>
+          <!-- Demo BounceCards Angular component -->
+          <div class="flex justify-center mt-10">
+            <app-bounce-cards
+              [images]="bounceImages()"
+              [containerWidth]="500"
+              [containerHeight]="250"
+              [animationDelay]="1.1"
+              [animationStagger]="0.09"
+              [easeType]="'elastic.out(1, 0.5)'"
+              [transformStyles]="bounceTransforms()"
+              [enableHover]="true"
+            ></app-bounce-cards>
+          </div>
         </div>
       </div>
-    </section>
-
-
-    <section class="space-y-8">
-
-
-
     </section>
 
   </main>

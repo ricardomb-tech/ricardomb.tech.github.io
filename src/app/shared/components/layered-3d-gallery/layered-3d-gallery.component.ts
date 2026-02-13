@@ -1,8 +1,6 @@
+// layered-3d-gallery.component.ts
 import { Component, ChangeDetectionStrategy, input, signal, computed, ElementRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { fromEvent } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 export interface Layered3DImage {
   src: string;
@@ -25,35 +23,13 @@ export class Layered3dGalleryComponent {
   private readonly elementRef = inject(ElementRef);
 
   readonly images = input<Layered3DImage[]>([]);
-  readonly perspective = input(5000);
-    spacing = input<number>(200);
-
+  readonly perspective = input(2000);
+  readonly spacing = input<number>(200);
 
   readonly activeIndex = signal<number | null>(null);
-  readonly mouseX = signal(0.5);
-  readonly mouseY = signal(0.5);
-  readonly isMouseMoving = signal(false);
-  private mouseMoveTimeout?: number;
-
-  constructor() {
-    fromEvent<MouseEvent>(this.elementRef.nativeElement, 'mousemove')
-      .pipe(
-        throttleTime(16, undefined, { leading: true, trailing: true }),
-        takeUntilDestroyed()
-      )
-      .subscribe((event: MouseEvent) => this.onMouseMove(event));
-  }
 
   readonly galleryTransform = computed(() => {
-    if (!this.isMouseMoving()) {
-      return 'rotateX(-30deg) rotateY(40deg)'; // Posición fija cuando no hay movimiento
-    }
-
-    const mouseX = this.mouseX();
-    const mouseY = this.mouseY();
-    const rotateY = (mouseX - 0.5) * 40;
-    const rotateX = -(mouseY - 0.5) * 30;
-    return `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    return 'rotateX(-15deg) rotateY(55deg)';
   });
 
   readonly layerTransforms = computed(() => {
@@ -63,60 +39,31 @@ export class Layered3dGalleryComponent {
 
     return images.map((_, i) => {
       const isActive = active === i;
-
-      // Mayor separación entre capas: de -300px a +300px
-      const zStart = -300;
-      const zEnd = 300;
+      const zStart = -270;
+      const zEnd = 270;
       const zRange = zEnd - zStart;
-      const translateZ = zStart + (i / (numImages - 1)) * zRange;
+      const translateZ = numImages === 1 ? 0 : zStart + (i / (numImages - 1)) * zRange;
+
+      // Unificar animación para todas
+      const scale = active === null ? 1 : isActive ? 0.95 : 0.78;
+      const opacity = active === null ? 1 : isActive ? 1 : 0.4;
 
       return {
-        transform: `translateZ(${translateZ}px) ${isActive ? 'scale(1.05)' : 'scale(0.75)'}`,
-        zIndex: i,
-        opacity: this.getOpacity(i)
+        transform: `translateZ(${translateZ}px) scale(${scale})`,
+        zIndex: isActive ? 9999 : 0,
+        opacity
       };
     });
   });
 
   private getOpacity(i: number): number {
     const active = this.activeIndex();
-
-    // Si hay una imagen activa, solo esa se ve
-    if (active !== null) {
-      return active === i ? 1 : 0.15;
-    }
-
-    // Si no hay activa, todas se ven con opacidad reducida
-    return 0.85;
-  }
-
-  private onMouseMove(event: MouseEvent): void {
-    const rect = this.elementRef.nativeElement.getBoundingClientRect();
-    this.mouseX.set((event.clientX - rect.left) / rect.width);
-    this.mouseY.set((event.clientY - rect.top) / rect.height);
-
-    // Marcar que el mouse se está moviendo
-    this.isMouseMoving.set(true);
-
-    // Resetear el timeout
-    if (this.mouseMoveTimeout) {
-      window.clearTimeout(this.mouseMoveTimeout);
-    }
-
-    // Después de 150ms sin movimiento, volver a la posición fija
-    this.mouseMoveTimeout = window.setTimeout(() => {
-      this.isMouseMoving.set(false);
-    }, 150);
+    if (active === null) return 1;
+    return active === i ? 1 : 0.4;
   }
 
   onMouseLeave(): void {
     this.activeIndex.set(null);
-    this.mouseX.set(0.5);
-    this.mouseY.set(0.5);
-    this.isMouseMoving.set(false);
-    if (this.mouseMoveTimeout) {
-      window.clearTimeout(this.mouseMoveTimeout);
-    }
   }
 
   trackByIndex(index: number): number {
