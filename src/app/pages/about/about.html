@@ -11,35 +11,33 @@
       <div class="w-full md:basis-[40rem] md:flex-none space-y-6 md:pr-4 md:mt-16">
         <!-- Encabezado fijo para que no afecte al párrafo -->
         <div class="flex items-baseline gap-2 whitespace-nowrap h-[3.5rem] md:h-[4rem] lg:h-[4.5rem]">
-          <app-shimmer-text
-        [text]="'Ricardo Martinez es'"
-        [extraClasses]="'text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-sky-400'"
-          ></app-shimmer-text>
+          <app-shimmer-text [text]="'Ricardo Martinez es'"
+            [extraClasses]="'text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-sky-400'"></app-shimmer-text>
           <app-typewriter-title class="inline-block"></app-typewriter-title>
         </div>
 
         <div class="space-y-6">
           <p class="text-xl md:text-2xl lg:text-3xl text-gray-400">
-            Soy un desarrollador de software con una pasión por crear soluciones innovadoras y eficientes. Con una sólida formación en programación y experiencia en diversos proyectos, me especializo en el desarrollo de aplicaciones web y móviles. Mi enfoque se centra en la calidad del código, la usabilidad y la experiencia del usuario, siempre buscando superar las expectativas de mis clientes y usuarios finales.
+            Soy un desarrollador de software con una pasión por crear soluciones innovadoras y eficientes. Con una
+            sólida formación en programación y experiencia en diversos proyectos, me especializo en el desarrollo de
+            aplicaciones web y móviles. Mi enfoque se centra en la calidad del código, la usabilidad y la experiencia
+            del usuario, siempre buscando superar las expectativas de mis clientes y usuarios finales.
           </p>
 
 
 
           <p class="text-xl md:text-2xl lg:text-3xl text-gray-400">
-            A lo largo de mi carrera, he trabajado en una variedad de proyectos, desde pequeñas aplicaciones hasta sistemas complejos, utilizando tecnologías modernas y metodologías ágiles. Mi objetivo es seguir creciendo como profesional, aprendiendo nuevas habilidades y contribuyendo a proyectos que tengan un impacto positivo en la vida de las personas.
+            A lo largo de mi carrera, he trabajado en una variedad de proyectos, desde pequeñas aplicaciones hasta
+            sistemas complejos, utilizando tecnologías modernas y metodologías ágiles. Mi objetivo es seguir creciendo
+            como profesional, aprendiendo nuevas habilidades y contribuyendo a proyectos que tengan un impacto positivo
+            en la vida de las personas.
           </p>
 
           <div class="flex flex-wrap gap-4 pt-4">
-            <app-fancy-button
-              label="Resume"
-              variant="outline"
-              href="https://drive.google.com/file/d/1gTaH2jY1yuk5HwA5mqg1P9NFPvC36VVM/view?usp=sharing"
-            ></app-fancy-button>
-            <app-fancy-button
-            label="LinkedIn"
-            variant="outline"
-            href="https://www.linkedin.com/in/ricardo-martinez-banda/"
-            ></app-fancy-button>
+            <app-fancy-button label="Resume" variant="outline"
+              href="https://drive.google.com/file/d/1gTaH2jY1yuk5HwA5mqg1P9NFPvC36VVM/view?usp=sharing"></app-fancy-button>
+            <app-fancy-button label="LinkedIn" variant="outline"
+              href="https://www.linkedin.com/in/ricardo-martinez-banda/"></app-fancy-button>
           </div>
         </div>
       </div>
@@ -56,29 +54,76 @@
 
     </section>
 
-    <section class="space-y-8 pt-0 mt-0">
-      <h2 class="text-2xl md:text-3xl lg:text-4xl font-extralight font-normal tracking-tight text-white flex items-center gap-4 justify-center" style="font-family: 'Montserrat Hairline', 'Roboto Thin', 'Arial', sans-serif; font-weight: 200;">
+    <section class="space-y-8 pt-0 -mt-24">
+      <h2
+        class="text-2xl md:text-3xl lg:text-4xl font-extralight font-normal tracking-tight text-white flex items-center gap-4 justify-center"
+        style="font-family: 'Montserrat Hairline', 'Roboto Thin', 'Arial', sans-serif; font-weight: 200;">
         <span class="flex-1 h-px bg-gray-600"></span>
         Habilidades
         <span class="flex-1 h-px bg-gray-600"></span>
       </h2>
-      <div class="flex justify-center items-center w-full py-8">
+      <div class="flex justify-center items-start w-full py-8 gap-12">
+        <div class="flex flex-col items-center">
+
+        </div>
         <div class="mx-auto flex justify-center items-center" style="max-width: 1600px; width: 100%;">
           <!-- Demo BounceCards Angular component -->
-          <div class="flex justify-center mt-10">
-            <app-bounce-cards
-              [images]="bounceImages()"
-              [containerWidth]="500"
-              [containerHeight]="250"
-              [animationDelay]="1.1"
-              [animationStagger]="0.09"
-              [easeType]="'elastic.out(1, 0.5)'"
-              [transformStyles]="bounceTransforms()"
-              [enableHover]="true"
-            ></app-bounce-cards>
+          <div class="flex justify-center -mt-34">
+            <app-bounce-cards [images]="bounceImages()" [containerWidth]="1500" [containerHeight]="620"
+              [animationDelay]="1.1" [animationStagger]="0.09" [easeType]="'elastic.out(1, 0.3)'"
+              [transformStyles]="bounceTransforms()" [enableHover]="true"></app-bounce-cards>
           </div>
         </div>
       </div>
+
+      <!-- Habilidades blandas -->
+      <div class="flex flex-col items-start gap-6 -mt-30">
+        <div class="flex flex-col gap-2 text-2xl md:text-3xl lg:text-4xl font-light tracking-tight">
+          <span class="text-white font-bold">Tengo habilidades en</span>
+          <app-flip-words [words]="['trabajo en equipo', 'comunicación', 'manejo de frustraciones', 'adaptabilidad']"
+            [duration]="3000"
+            [extraClasses]="'text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-sky-400'"></app-flip-words>
+        </div>
+        <p class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl">
+          Estas habilidades blandas me permiten colaborar eficazmente, comunicarme con claridad, adaptarme a los cambios
+          y superar desafíos en entornos dinámicos, aportando siempre una actitud positiva y resiliente a cada proyecto.
+        </p>
+      </div>
+
+      <!-- Habilidades técnicas: nube de íconos -->
+      <div class="flex flex-row gap-12 mt-6 ml-6 items-start">
+        <!-- Icon Cloud -->
+        <div class="flex flex-col items-start gap-4">
+          <app-icon-cloud [images]="iconCloudImages" [iconSize]="80"
+            style="width:400px; height:400px; display:block;"></app-icon-cloud>
+        </div>
+        <!-- Lista de tecnologías alineada a la derecha -->
+        <div class="flex flex-col items-end justify-end w-full pr-4">
+            <div class="w-full flex justify-center">
+              <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-2 text-center">Tecnologías</h1>
+            </div>
+          <app-bubble-tech-list [technologies]="[
+            'TypeScript',
+            'Angular',
+            'JavaScript (ES6+)',
+            'HTML5 & CSS3',
+            'Tailwind CSS',
+            'RxJS',
+            'Node.js',
+            'Firebase',
+            'Git & GitHub',
+            'Figma',
+            'Jest',
+            'Docker',
+            'MongoDB',
+            'PostgreSQL'
+          ]" />
+        </div>
+      </div>
+    </section>
+
+    <section>
+
     </section>
 
   </main>

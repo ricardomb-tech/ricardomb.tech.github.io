@@ -1,0 +1,21 @@
+.flip-words {
+  z-index: 10;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  color: var(--color-neutral-900, #111);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.flip-words.dark {
+  color: var(--color-neutral-100, #fafafa);
+}
+
+.flip-words .inline-block {
+  display: inline-block;
+}
+
+.flip-words .whitespace-nowrap {
+  white-space: nowrap;
+}

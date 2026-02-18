@@ -1,20 +1,25 @@
 <div
+  [style.width.px]="containerWidth()"
+  [style.height.px]="containerHeight()"
   class="relative flex items-center justify-center"
-  [style.width]="containerWidth() + 'px'"
-  [style.height]="containerHeight() + 'px'"
   #container
 >
   @for (img of images(); track trackByIndex($index); let idx = $index) {
     <div
-      class="card absolute w-[280px] aspect-square border-8 border-white rounded-[36px] overflow-hidden shadow-lg transition-transform duration-300"
+      class="card card-glow relative absolute w-[480px] aspect-square rounded-[40px] overflow-hidden transition-transform duration-300"
       [class]="'card-' + idx"
       [style.transform]="transformStyles()[idx] || 'none'"
-      (mouseenter)="pushSiblings(idx)"
-      (mouseleave)="resetSiblings()"
+      (mouseenter)="onCardMouseEnter($event, idx)"
+      (mousemove)="onCardMouseMove($event)"
+      (mouseleave)="onCardMouseLeave()"
     >
       <img class="w-full h-full object-cover" [src]="img.src" [alt]="img.alt || 'card-' + idx" />
-      @if (hoveredIndex() === idx && img.description) {
-        <div class="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-12 bg-black bg-opacity-80 text-white px-4 py-2 rounded-xl shadow-xl text-sm font-semibold z-20 pointer-events-none animate-fade-in">
+      @if (hoveredIndex() === idx && showTooltip() && img.description) {
+        <div
+          class="floating-tooltip"
+          [style.left.px]="tooltipPosition().x"
+          [style.top.px]="tooltipPosition().y"
+        >
           {{ img.description }}
         </div>
       }

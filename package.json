@@ -32,6 +32,7 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/ssr": "^20.3.7",
+    "@floating-ui/dom": "^1.7.5",
     "@tailwindcss/postcss": "^4.1.18",
     "d3": "^7.9.0",
     "express": "^5.1.0",

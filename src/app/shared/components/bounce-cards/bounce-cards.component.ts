@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, input, signal, computed, ElementRef, inject, effect } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal, ElementRef, inject, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 
@@ -23,26 +23,59 @@ export class BounceCardsComponent {
   private readonly elementRef = inject(ElementRef);
 
   readonly images = input<BounceCardsImage[]>([]);
-  readonly containerWidth = input<number>(700);
-  readonly containerHeight = input<number>(320);
+  readonly containerWidth = input<number>(780);
+  readonly containerHeight = input<number>(340);
   readonly animationDelay = input<number>(1.1);
   readonly animationStagger = input<number>(0.09);
   readonly easeType = input<string>('elastic.out(1, 0.5)');
   readonly transformStyles = input<string[]>([
-    'rotate(5deg) translate(-520px)',
-    'rotate(0deg) translate(-260px)',
+    'rotate(5deg) translate(-420px)',
+    'rotate(0deg) translate(-210px)',
     'rotate(-5deg)',
-    'rotate(5deg) translate(260px)',
-    'rotate(-5deg) translate(520px)'
+    'rotate(5deg) translate(210px)',
+    'rotate(-5deg) translate(420px)'
   ]);
   readonly enableHover = input<boolean>(true);
 
   readonly hoveredIndex = signal<number | null>(null);
+  readonly showTooltip = signal<boolean>(false);
+  readonly tooltipPosition = signal<{ x: number; y: number }>({ x: 0, y: 0 });
 
   constructor() {
     effect(() => {
       this.animateIn();
     });
+  }
+
+  onCardMouseEnter(event: MouseEvent, index: number) {
+    this.hoveredIndex.set(index);
+    this.showTooltip.set(true);
+    this.updateTooltipPosition(event);
+    this.pushSiblings(index);
+  }
+
+  onCardMouseMove(event: MouseEvent) {
+    if (this.showTooltip()) {
+      this.updateTooltipPosition(event);
+    }
+  }
+
+  onCardMouseLeave() {
+    this.resetSiblings();
+  }
+
+  private updateTooltipPosition(event: MouseEvent) {
+    const target = event.currentTarget as HTMLElement | null;
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+    const padding = 12;
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const clampedX = Math.max(padding, Math.min(x, rect.width - padding));
+    const clampedY = Math.max(padding, Math.min(y, rect.height - padding));
+
+    this.tooltipPosition.set({ x: clampedX, y: clampedY });
   }
 
   animateIn() {
@@ -84,14 +117,12 @@ export class BounceCardsComponent {
 
   pushSiblings(hoveredIdx: number) {
     if (!this.enableHover()) return;
-    this.hoveredIndex.set(hoveredIdx);
     const el = this.elementRef.nativeElement;
     this.images().forEach((_, i) => {
       const card = el.querySelector(`.card-${i}`);
       gsap.killTweensOf(card);
       const baseTransform = this.transformStyles()[i] || 'none';
       if (i === hoveredIdx) {
-        // Floating effect: scale up, pop forward, full opacity
         const noRotation = this.getNoRotationTransform(baseTransform);
         gsap.to(card, {
           transform: `${noRotation} scale(1.08) translateY(-18px)`,
@@ -103,15 +134,14 @@ export class BounceCardsComponent {
           overwrite: 'auto'
         });
       } else {
-        // Staggered animation: scale down, fade, push sideways
-        const offsetX = i < hoveredIdx ? -160 : 160;
+        const offsetX = 0;
         const pushedTransform = this.getPushedTransform(baseTransform, offsetX);
         const distance = Math.abs(hoveredIdx - i);
         const delay = distance * 0.07;
         gsap.to(card, {
-          transform: `${pushedTransform} scale(0.85)`,
+          transform: `${pushedTransform} scale(1)`,
           zIndex: 1,
-          opacity: 0.45,
+          opacity: 0.2,
           boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
           duration: 0.45,
           delay,
@@ -125,6 +155,7 @@ export class BounceCardsComponent {
   resetSiblings() {
     if (!this.enableHover()) return;
     this.hoveredIndex.set(null);
+    this.showTooltip.set(false);
     const el = this.elementRef.nativeElement;
     this.images().forEach((_, i) => {
       const card = el.querySelector(`.card-${i}`);
