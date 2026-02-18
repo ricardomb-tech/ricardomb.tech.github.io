@@ -1,0 +1,95 @@
+<!-- Proyectos destacados -->
+          <section id="proyectos" class="mt-20 border-t border-slate-900 pt-12">
+            <header class="mb-8 flex items-baseline justify-between">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
+                  Proyectos destacados
+                </p>
+                <h2 class="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+                  Selecci&oacute;n de trabajos recientes
+                </h2>
+              </div>
+
+              <button
+                type="button"
+                class="hidden rounded-full border border-slate-500 px-5 py-2 text-xs font-medium text-slate-200 md:inline-flex"
+              >
+                Ver todos los proyectos
+              </button>
+            </header>
+
+            <div class="grid gap-6 md:grid-cols-3">
+              @for (project of featuredProjects(); track project.id) {
+                <article class="flex flex-col justify-between rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
+                  <header class="mb-3">
+                    <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-sky-400">
+                      {{ project.tagline }}
+                    </p>
+                    <h3 class="mt-1 text-base font-semibold">
+                      {{ project.name }}
+                    </h3>
+                  </header>
+
+                  <p class="mb-4 line-clamp-3 text-xs text-slate-400">
+                    {{ project.description }}
+                  </p>
+
+                  <div class="mt-auto flex flex-wrap items-center gap-2 text-[11px] text-slate-400">
+                    @for (tech of project.stack; track tech) {
+                      <span class="rounded-full border border-slate-700 px-2 py-0.5">
+                        {{ tech }}
+                      </span>
+                    }
+                  </div>
+                </article>
+              }
+            </div>
+          </section>
+
+           <!-- Habilidades -->
+    <section id="habilidades" class="mt-16 border-t border-slate-900 pt-10">
+      <header class="mb-6">
+        <h2 class="text-center text-2xl font-semibold tracking-tight">
+          Habilidades
+        </h2>
+      </header>
+
+      <div class="grid gap-6 text-sm text-slate-300 md:grid-cols-2">
+        @for (skill of skills(); track skill.id) {
+          <article>
+            <h3 class="text-base font-medium text-sky-400">
+              {{ skill.name }}
+            </h3>
+            <p class="mt-1 text-slate-400">
+              {{ skill.description }}
+            </p>
+          </article>
+        }
+      </div>
+    </section>
+    <!-- Tecnologías -->
+    <section id="tecnologias" class="mt-16 border-t border-slate-900 pt-10">
+      <header class="mb-6">
+        <h2 class="text-center text-2xl font-semibold tracking-tight">
+          Tecnolog&iacute;as
+        </h2>
+        <p class="mt-2 text-center text-sm text-slate-400">
+          Stack principal para desarrollo de aplicaciones web y soluciones IoT.
+        </p>
+      </header>
+
+      <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+        @for (tech of technologies(); track tech.name) {
+          <article
+            class="flex flex-col items-center justify-center rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-center"
+          >
+            <span class="text-sm font-medium text-sky-400">
+              {{ tech.name }}
+            </span>
+            <span class="mt-1 text-xs text-slate-400">
+              {{ tech.category }}
+            </span>
+          </article>
+        }
+      </div>
+    </section>

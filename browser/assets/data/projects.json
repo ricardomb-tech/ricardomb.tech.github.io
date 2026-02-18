@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Mi Portafolio",
+    "description": "El sitio que estás viendo ahora. Construido con Angular 20, TypeScript y desplegado en GitHub Pages.",
+    "technologies": ["Angular", "TypeScript", "SCSS", "GitHub Pages"],
+    "repoUrl": "https://github.com/ricardomb-tech/ricardomb-tech.github.io",
+    "liveUrl": "https://ricardomb.tech"
+  },
+  {
+    "id": 2,
+    "title": "Otro Proyecto Increíble",
+    "description": "Descripción de otro proyecto que demuestra mis habilidades.",
+    "technologies": ["React", "Node.js", "GraphQL"],
+    "repoUrl": "https://github.com/user/repo"
+  }
+]

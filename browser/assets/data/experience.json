@@ -1,0 +1,23 @@
+[
+  {
+    "company": "Empresa Tecnológica Global",
+    "position": "Senior Frontend Developer",
+    "startDate": "Ene 2022",
+    "endDate": "Presente",
+    "description": [
+      "Lideré el desarrollo de la nueva plataforma de e-commerce usando Angular.",
+      "Mejoré el performance del sitio en un 40% aplicando técnicas de lazy loading y optimización de assets.",
+      "Implementé un sistema de diseño de componentes reutilizables."
+    ]
+  },
+  {
+    "company": "Startup Innovadora",
+    "position": "Software Engineer",
+    "startDate": "Jun 2020",
+    "endDate": "Dic 2021",
+    "description": [
+      "Desarrollé y mantuve aplicaciones web full-stack.",
+      "Participé en el ciclo completo de vida del software, desde el diseño hasta el despliegue."
+    ]
+  }
+]
