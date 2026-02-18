@@ -1,0 +1,39 @@
+/* Hero photo: bigger, with circular fade-out effect */
+.hero-photo-wrapper {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px;
+	border-radius: 9999px;
+	background: radial-gradient(circle at center, #ffffff10 0%, #020617 55%, #000000 100%);
+}
+
+.hero-photo {
+	display: block;
+	max-height: 820px;
+	height: auto;
+	width: auto;
+	border-radius: 9999px;
+	transform: scale(1.25);
+	transform-origin: center;
+	/* Radial fade from center (negro) a transparente hacia los bordes */
+	-webkit-mask-image: radial-gradient(
+	  circle at center,
+	  rgba(0, 0, 0, 1) 0%,
+	  rgba(0, 0, 0, 1) 55%,
+	  rgba(0, 0, 0, 0) 100%
+	);
+	mask-image: radial-gradient(
+	  circle at center,
+	  rgba(0, 0, 0, 1) 0%,
+	  rgba(0, 0, 0, 1) 55%,
+	  rgba(0, 0, 0, 0) 100%
+	);
+}
+
+@media (min-width: 768px) {
+	.hero-photo {
+		max-height: 900px;
+	}
+}

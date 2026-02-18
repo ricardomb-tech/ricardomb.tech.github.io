@@ -12,19 +12,69 @@ import { IconCloudComponent } from "../../shared/components/icon-cloud/icon-clou
 import { BubbleTechListComponent } from '../../shared/components/bubble-tech-list';
 import { NgFor } from '@angular/common';
 
+import { BentoGridComponent } from '../../shared/components/bento-grid/bento-grid.component';
+
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.html',
   styleUrls: ['./about.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
+  // standalone: true,
   imports: [
-    HeaderComponent, NgOptimizedImage, ShimmerTextComponent, TypewriterTitleComponent, FancyButtonComponent, Layered3dGalleryComponent, BounceCardsComponent, IconCloudComponent, FlipWordsComponent, BubbleTechListComponent
+    HeaderComponent, NgOptimizedImage, ShimmerTextComponent, TypewriterTitleComponent, FancyButtonComponent, BounceCardsComponent, IconCloudComponent, FlipWordsComponent, BubbleTechListComponent,
   ]
 })
 export class About {
   about3dGallery = ABOUT_3D_GALLERY;
+
+  features = [
+    {
+      icon: 'fa-regular fa-file-lines',
+      name: 'Save your files',
+      description: 'We automatically save your files as you type.',
+      href: '/',
+      cta: 'Learn more',
+      background: 'bg-gradient-to-tr from-sky-800/30 to-transparent',
+      className: 'md:row-span-2'
+    },
+    {
+      icon: 'fa-solid fa-magnifying-glass',
+      name: 'Full text search',
+      description: 'Search through all your files in one place.',
+      href: '/',
+      cta: 'Learn more',
+      background: 'bg-gradient-to-tr from-pink-800/30 to-transparent',
+      className: 'md:col-span-2'
+    },
+    {
+      icon: 'fa-solid fa-globe',
+      name: 'Multilingual',
+      description: 'Supports 100+ languages and counting.',
+      href: '/',
+      cta: 'Learn more',
+      background: 'bg-gradient-to-tr from-green-800/30 to-transparent',
+      className: 'md:col-span-2'
+    },
+    {
+      icon: 'fa-regular fa-calendar',
+      name: 'Calendar',
+      description: 'Use the calendar to filter your files by date.',
+      href: '/',
+      cta: 'Learn more',
+      background: 'bg-gradient-to-tr from-yellow-800/30 to-transparent',
+      className: 'md:row-span-2'
+    },
+    {
+      icon: 'fa-regular fa-bell',
+      name: 'Notifications',
+      description: 'Get notified when someone shares a file or mentions you in a comment.',
+      href: '/',
+      cta: 'Learn more',
+      background: 'bg-gradient-to-tr from-purple-800/30 to-transparent',
+      className: 'md:col-span-2'
+    }
+  ];
 
   readonly bounceImages = signal([
     {

@@ -1,1 +1,68 @@
-<p>projects works!</p>
+	<div class="bg-black text-white min-h-screenoverflow-x-hidden">
+
+    <app-header></app-header>
+		<section class="w-full relative overflow-hidden bg-black min-h-[400px] md:min-h-[700px] flex flex-row justify-between items-center mb-16 text-2xl md:text-4xl">
+			<!-- Contenido a la izquierda -->
+			<div class="relative z-10 flex flex-col items-start self-start max-w-2xl px-8 md:pl-16 py-20 flex-1 gap-6">
+				<h2 class="font-bold text-white text-4xl md:text-6xl mb-2">{{carouselSlides()[currentSlide()].title}}</h2>
+				<div class="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded mb-4"></div>
+				<p class="text-slate-200 text-lg md:text-2xl mb-4">{{carouselSlides()[currentSlide()].description}}</p>
+				<div class="flex flex-wrap gap-3 mb-6">
+					@for (tech of carouselSlides()[currentSlide()].technologies; let techIdx = $index; track techIdx) {
+						<span class="px-4 py-2 rounded-full border border-slate-600 bg-black/30 text-slate-100 text-base font-semibold">{{tech}}</span>
+					}
+				</div>
+        <div class="flex gap-6 self-start mb-8">
+          <button class="bg-white text-black font-bold px-4 py-2 rounded-2xl shadow hover:bg-slate-200 transition text-sm">Ver Proyecto</button>
+        </div>
+				<!-- Carousel Controls & Indicators -->
+				<div class="absolute bottom-4 left-8 flex flex-col items-center z-20">
+					<div class="flex gap-6 mb-2">
+						<button (click)="prevSlide()" class="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center text-3xl bg-black/40 hover:bg-black/70 transition">&#8592;</button>
+						<button (click)="nextSlide()" class="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center text-3xl bg-black/40 hover:bg-black/70 transition">&#8594;</button>
+					</div>
+				</div>
+			</div>
+			<!-- Imagen del slide a la derecha con degradado radial -->
+			<div class="relative flex-1 flex justify-center items-center h-full z-10 min-h-[350px]">
+				<div class="hero-photo-wrapper w-[200px] h-[200px] md:w-[260px] md:h-[260px] flex items-center justify-center">
+					<img [src]="carouselSlides()[currentSlide()].image" [alt]="carouselSlides()[currentSlide()].alt"
+						class="hero-photo w-[180px] h-[180px] md:w-[240px] md:h-[240px] object-cover"
+						style="z-index:2; max-width:90vw; max-height:80vh;" />
+				</div>
+			</div>
+		</section>
+
+
+	<main class="max-w-7xl mx-auto px-4">
+		<h1 class="text-3xl font-bold text-slate-100 mb-8 tracking-tight flex items-center gap-2">
+			<span class="inline-block animate-pulse">💡</span> Proyectos Destacados
+		</h1>
+		<section class="grid md:grid-cols-3 gap-8">
+			@for (project of projects(); track project.id) {
+				<div class="group bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl p-6 hover:scale-105 transition-transform duration-300 relative overflow-hidden">
+					<div class="absolute -top-6 -right-6 opacity-10 text-8xl pointer-events-none group-hover:opacity-30 transition-opacity duration-300">🚀</div>
+					@if (project['image']) {
+						<img [src]="project['image']" [alt]="project.title" class="w-20 h-20 object-contain rounded-xl border border-slate-700 shadow bg-slate-900 mb-4 mx-auto">
+					}
+					<h2 class="text-xl font-semibold text-sky-400 mb-2 text-center">{{project.title}}</h2>
+					<p class="text-slate-300 text-sm mb-3 text-center">{{project.description}}</p>
+					<div class="flex flex-wrap gap-2 justify-center mb-2">
+						@for (tech of project.technologies; track tech) {
+							<span class="bg-sky-900 text-sky-300 px-2 py-1 rounded text-xs font-mono">{{tech}}</span>
+						}
+					</div>
+					<div class="flex gap-4 justify-center mt-2">
+						@if (project.repoUrl) {
+							<a [href]="project.repoUrl" target="_blank" rel="noopener" class="text-xs text-sky-400 hover:underline">Repositorio</a>
+						}
+						@if (project.liveUrl) {
+							<a [href]="project.liveUrl" target="_blank" rel="noopener" class="text-xs text-green-400 hover:underline">Ver online</a>
+						}
+					</div>
+				</div>
+			}
+		</section>
+	</main>
+
+  <div></div>

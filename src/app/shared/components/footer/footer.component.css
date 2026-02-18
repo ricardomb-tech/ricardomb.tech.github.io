@@ -1,0 +1,130 @@
+.footer-container {
+  background: #fff;
+  color: #111;
+  padding: 0;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: 0 -2px 24px 0 rgba(0,0,0,0.08);
+  font-family: 'Inter', Arial, sans-serif;
+}
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  gap: 2rem;
+}
+.footer-brand {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  background: #111;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  border-radius: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.10);
+  margin-bottom: 0.5rem;
+}
+.footer-desc {
+  font-size: 1.1rem;
+  color: #222;
+}
+.footer-powered {
+  color: #888;
+  font-size: 0.95rem;
+}
+.footer-links {
+  display: flex;
+  gap: 3rem;
+  flex: 2 1 320px;
+  justify-content: space-between;
+}
+.footer-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  color: #111;
+  letter-spacing: 0.04em;
+}
+.footer-link {
+  display: block;
+  color: #222;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.footer-newsletter {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.footer-form {
+  display: flex;
+  gap: 0.5rem;
+}
+.footer-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  background: #f7f7f7;
+  color: #111;
+  transition: border 0.2s;
+}
+.footer-input:focus {
+  border: 1.5px solid #111;
+}
+.footer-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+.footer-btn:hover {
+  background: #222;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 1rem 0 0.5rem 0;
+  font-size: 0.98rem;
+  color: #888;
+  border-top: 1px solid #eee;
+  background: #fff;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.5rem;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
