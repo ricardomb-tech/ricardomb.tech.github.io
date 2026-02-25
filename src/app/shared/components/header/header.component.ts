@@ -20,5 +20,6 @@ export class HeaderComponent {
     { id: 2, label: 'Acerca de mi', route: '/about' },
     { id: 3, label: 'Proyectos', route: '/projects' },
     { id: 4, label: 'Experiencia', route: '/experience' },
+    { id: 5, label: 'Contacto', route: '/contact' },
   ]);
 }
