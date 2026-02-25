@@ -39,7 +39,7 @@ jobs:
         run: npx ng build --configuration production --base-href=/ricardomb.tech.github.io/
         
       - name: Copy index.html to 404.html
-        run: cp dist/browser/index.html dist/browser/404.html
+        run: cp dist/browser/browser/index.html dist/browser/browser/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -47,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/browser'
+          path: './dist/browser/browser'
 
       - name: Deploy to GitHub Pages
         id: deployment
