@@ -6,11 +6,14 @@
 	position: absolute;
 	transform: translate(12px, 12px);
 	background: rgba(0, 0, 0, 0.82);
-	color: #ffffff;
+	color: #a1a1aa;
+	/* text-zinc-400 */
 	padding: 8px 10px;
 	border-radius: 10px;
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 300;
+	/* font-light */
+	font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 	pointer-events: none;
 	max-width: 180px;

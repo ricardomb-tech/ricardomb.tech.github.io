@@ -1,4 +1,5 @@
-/* Hero photo: bigger, with circular fade-out effect */
+/* Custom styles for projects component */
+
 .hero-photo-wrapper {
 	position: relative;
 	display: inline-flex;
@@ -17,19 +18,15 @@
 	border-radius: 9999px;
 	transform: scale(1.25);
 	transform-origin: center;
-	/* Radial fade from center (negro) a transparente hacia los bordes */
-	-webkit-mask-image: radial-gradient(
-	  circle at center,
-	  rgba(0, 0, 0, 1) 0%,
-	  rgba(0, 0, 0, 1) 55%,
-	  rgba(0, 0, 0, 0) 100%
-	);
-	mask-image: radial-gradient(
-	  circle at center,
-	  rgba(0, 0, 0, 1) 0%,
-	  rgba(0, 0, 0, 1) 55%,
-	  rgba(0, 0, 0, 0) 100%
-	);
+	/* Circular fade from center to transparent using CSS mask */
+	-webkit-mask-image: radial-gradient(circle at center,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 1) 60%,
+			rgba(0, 0, 0, 0) 100%);
+	mask-image: radial-gradient(circle at center,
+			rgba(0, 0, 0, 1) 0%,
+			rgba(0, 0, 0, 1) 60%,
+			rgba(0, 0, 0, 0) 100%);
 }
 
 @media (min-width: 768px) {

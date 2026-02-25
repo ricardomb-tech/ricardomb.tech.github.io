@@ -2,16 +2,99 @@
   {
     "id": 1,
     "title": "Mi Portafolio",
-    "description": "El sitio que estás viendo ahora. Construido con Angular 20, TypeScript y desplegado en GitHub Pages.",
-    "technologies": ["Angular", "TypeScript", "SCSS", "GitHub Pages"],
-    "repoUrl": "https://github.com/ricardomb-tech/ricardomb-tech.github.io",
-    "liveUrl": "https://ricardomb.tech"
+    "description": "Sitio web personal desarrollado con Angular 20, signals y diseño minimalista.",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/ricardomb.tech.github.io",
+    "liveUrl": "https://ricardomb.tech",
+    "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2070&auto=format&fit=crop"
   },
   {
     "id": 2,
-    "title": "Otro Proyecto Increíble",
-    "description": "Descripción de otro proyecto que demuestra mis habilidades.",
-    "technologies": ["React", "Node.js", "GraphQL"],
-    "repoUrl": "https://github.com/user/repo"
+    "title": "Montaña Óptima",
+    "description": "Aplicación de gestión y optimización de rutas o recursos en zonas geográficas.",
+    "technologies": [
+      "Backend",
+      "Optimización",
+      "API"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/Monta-aOptima.git",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": 3,
+    "title": "Project Fullstack Junior",
+    "description": "Proyecto completo integrando backend y frontend con buenas prácticas de desarrollo.",
+    "technologies": [
+      "Fullstack",
+      "JavaScript",
+      "Frontend",
+      "Backend"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/project-fullstack-junior.git",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": 4,
+    "title": "ExcursionistasApp",
+    "description": "Plataforma diseñada para organizar y gestionar paseos y excursiones de forma sencilla.",
+    "technologies": [
+      "Mobile/Web",
+      "Geolocation",
+      "Social"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/ExcursionistasApp.git",
+    "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": 5,
+    "title": "Franchise API",
+    "description": "Servicio Backend robusto destinado a la administración y logística de franquicias.",
+    "technologies": [
+      "API REST",
+      "Node.js",
+      "Database"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/Franchise-API.git",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": 6,
+    "title": "Auth Service",
+    "description": "Microservicio de autenticación y autorización seguro para sistemas distribuidos.",
+    "technologies": [
+      "Security",
+      "JWT",
+      "Microservices"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/auth-service.git",
+    "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": 7,
+    "title": "Backend Tercero",
+    "description": "API y lógica de negocio implementada para un sistema de integración de terceros.",
+    "technologies": [
+      "Backend",
+      "Integrations",
+      "API"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/backendTercero.git",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": 8,
+    "title": "AppReciScan",
+    "description": "Aplicación innovadora para el escaneo y procesamiento automatizado de recibos.",
+    "technologies": [
+      "OCR",
+      "AI",
+      "Mobile"
+    ],
+    "repoUrl": "https://github.com/ricardomb-tech/AppReciScan.git",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8ed745d433?q=80&w=2070&auto=format&fit=crop"
   }
 ]

@@ -1,68 +1,203 @@
-	<div class="bg-black text-white min-h-screenoverflow-x-hidden">
+<div
+	class="bg-[#080808] text-zinc-300 min-h-screen overflow-x-hidden font-sans selection:bg-zinc-800 selection:text-white">
+	<app-header></app-header>
 
-    <app-header></app-header>
-		<section class="w-full relative overflow-hidden bg-black min-h-[400px] md:min-h-[700px] flex flex-row justify-between items-center mb-16 text-2xl md:text-4xl">
-			<!-- Contenido a la izquierda -->
-			<div class="relative z-10 flex flex-col items-start self-start max-w-2xl px-8 md:pl-16 py-20 flex-1 gap-6">
-				<h2 class="font-bold text-white text-4xl md:text-6xl mb-2">{{carouselSlides()[currentSlide()].title}}</h2>
-				<div class="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded mb-4"></div>
-				<p class="text-slate-200 text-lg md:text-2xl mb-4">{{carouselSlides()[currentSlide()].description}}</p>
-				<div class="flex flex-wrap gap-3 mb-6">
-					@for (tech of carouselSlides()[currentSlide()].technologies; let techIdx = $index; track techIdx) {
-						<span class="px-4 py-2 rounded-full border border-slate-600 bg-black/30 text-slate-100 text-base font-semibold">{{tech}}</span>
+	<!-- Hero Section -->
+	<section
+		class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-start overflow-hidden border-b border-white/5 bg-[#080808]">
+
+		<!-- Text Content Container (Left Side) -->
+		<div
+			class="relative z-20 w-full md:w-[55%] h-full flex flex-col justify-center px-8 md:px-16 lg:pl-24 pr-8 bg-gradient-to-r from-[#080808] via-[#080808] to-transparent">
+
+			<!-- Background subtle glow behind text -->
+			<div
+				class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-zinc-800/20 rounded-full blur-[120px] mix-blend-screen pointer-events-none -translate-y-1/2 z-0">
+			</div>
+
+			<div class="relative z-10 flex flex-col items-start gap-8 max-w-2xl">
+				<!-- Badge -->
+				<div
+					class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-zinc-800 bg-zinc-900/50 text-[13px] font-medium text-zinc-400 backdrop-blur-md">
+					<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+					Proyectos Destacados
+				</div>
+
+				<div class="space-y-4 relative w-full">
+					<!-- Slide Title -->
+					<h1
+						class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white tracking-tight leading-[1.05]">
+						{{carouselSlides()[currentSlide()].title}}
+					</h1>
+					<!-- Slide Description -->
+					<p class="text-base md:text-lg lg:text-xl text-zinc-400 max-w-xl leading-relaxed font-light">
+						{{carouselSlides()[currentSlide()].description}}
+					</p>
+				</div>
+
+				<!-- Tech Stack -->
+				<div class="flex flex-wrap gap-2 pt-1">
+					@for (tech of carouselSlides()[currentSlide()].technologies; track tech) {
+					<span
+						class="px-3 py-1 text-xs font-medium text-zinc-300 bg-zinc-800/30 border border-zinc-700/50 rounded-lg backdrop-blur-sm">
+						{{tech}}
+					</span>
 					}
 				</div>
-        <div class="flex gap-6 self-start mb-8">
-          <button class="bg-white text-black font-bold px-4 py-2 rounded-2xl shadow hover:bg-slate-200 transition text-sm">Ver Proyecto</button>
-        </div>
-				<!-- Carousel Controls & Indicators -->
-				<div class="absolute bottom-4 left-8 flex flex-col items-center z-20">
-					<div class="flex gap-6 mb-2">
-						<button (click)="prevSlide()" class="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center text-3xl bg-black/40 hover:bg-black/70 transition">&#8592;</button>
-						<button (click)="nextSlide()" class="w-14 h-14 rounded-full border-2 border-white flex items-center justify-center text-3xl bg-black/40 hover:bg-black/70 transition">&#8594;</button>
+
+				<!-- Actions -->
+				<div class="flex flex-wrap sm:flex-nowrap items-center gap-6 mt-2 w-full">
+					<a [href]="carouselSlides()[currentSlide()].repoUrl" target="_blank" rel="noopener"
+						class="px-7 py-3 w-full sm:w-auto bg-white text-black text-sm font-semibold rounded-lg hover:bg-zinc-200 transition-colors duration-300 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] text-center cursor-pointer inline-flex justify-center items-center gap-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<path
+								d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+							<path d="M9 18c-4.51 2-5-2-7-2" />
+						</svg>
+						Repositorio
+					</a>
+
+					<!-- Navigation Controls -->
+					<div class="flex gap-3 ml-auto sm:ml-0">
+						<button (click)="prevSlide()"
+							class="p-3.5 rounded-full border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-500 hover:bg-zinc-800/50 transition-all duration-300 group"
+							aria-label="Anterior slide">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+								stroke-linejoin="round" class="group-hover:-translate-x-1 transition-transform">
+								<path d="m15 18-6-6 6-6" />
+							</svg>
+						</button>
+						<button (click)="nextSlide()"
+							class="p-3.5 rounded-full border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-500 hover:bg-zinc-800/50 transition-all duration-300 group"
+							aria-label="Siguiente slide">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+								stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+								<path d="m9 18 6-6-6-6" />
+							</svg>
+						</button>
 					</div>
 				</div>
 			</div>
-			<!-- Imagen del slide a la derecha con degradado radial -->
-			<div class="relative flex-1 flex justify-center items-center h-full z-10 min-h-[350px]">
-				<div class="hero-photo-wrapper w-[200px] h-[200px] md:w-[260px] md:h-[260px] flex items-center justify-center">
-					<img [src]="carouselSlides()[currentSlide()].image" [alt]="carouselSlides()[currentSlide()].alt"
-						class="hero-photo w-[180px] h-[180px] md:w-[240px] md:h-[240px] object-cover"
-						style="z-index:2; max-width:90vw; max-height:80vh;" />
+		</div>
+
+		<!-- Image Area (Diagonal Split on Right Side, Inverted) -->
+		<div class="absolute top-0 right-0 w-full md:w-[60%] h-full z-10 overflow-hidden group">
+
+			<!-- Diagonal Mask container -->
+			<div class="absolute inset-0 w-full h-full bg-zinc-900 border-l border-zinc-800/50"
+				style="clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);">
+
+				<img [src]="carouselSlides()[currentSlide()].image" [alt]="carouselSlides()[currentSlide()].alt"
+					class="w-full h-full object-cover origin-center transition-transform duration-1000 group-hover:scale-105" />
+
+				<!-- Dark Gradient Overlay for the cut edge to blend it -->
+				<div
+					class="absolute inset-0 bg-gradient-to-r from-[#080808]/90 via-[#080808]/20 to-transparent md:bg-none">
+				</div>
+
+				<!-- Inner reflection -->
+				<div
+					class="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent pointer-events-none mix-blend-overlay">
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
+	<!-- Projects Grid -->
+	<main class="w-full max-w-7xl mx-auto px-6 py-24 md:px-12 md:py-32">
+		<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
+			<div class="max-w-2xl">
+				<h2 class="text-3xl md:text-5xl font-light text-white tracking-tight mb-4">Portafolio</h2>
+				<p class="text-zinc-400 text-lg font-light leading-relaxed">Una selección de mis proyectos más recientes
+					que combinan diseño minimalista, rendimiento y tecnologías modernas.</p>
+			</div>
 
-	<main class="max-w-7xl mx-auto px-4">
-		<h1 class="text-3xl font-bold text-slate-100 mb-8 tracking-tight flex items-center gap-2">
-			<span class="inline-block animate-pulse">💡</span> Proyectos Destacados
-		</h1>
-		<section class="grid md:grid-cols-3 gap-8">
+			<!-- Optional Filter/Sort could go here if implemented -->
+			<div class="hidden md:flex text-sm font-medium text-zinc-500 gap-6">
+				<button class="text-white hover:text-white transition-colors">Todos</button>
+				<button class="hover:text-white transition-colors">Web</button>
+				<button class="hover:text-white transition-colors">Mobile</button>
+			</div>
+		</div>
+
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-6 md:gap-y-16 md:gap-x-8">
 			@for (project of projects(); track project.id) {
-				<div class="group bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl p-6 hover:scale-105 transition-transform duration-300 relative overflow-hidden">
-					<div class="absolute -top-6 -right-6 opacity-10 text-8xl pointer-events-none group-hover:opacity-30 transition-opacity duration-300">🚀</div>
-					@if (project['image']) {
-						<img [src]="project['image']" [alt]="project.title" class="w-20 h-20 object-contain rounded-xl border border-slate-700 shadow bg-slate-900 mb-4 mx-auto">
-					}
-					<h2 class="text-xl font-semibold text-sky-400 mb-2 text-center">{{project.title}}</h2>
-					<p class="text-slate-300 text-sm mb-3 text-center">{{project.description}}</p>
-					<div class="flex flex-wrap gap-2 justify-center mb-2">
-						@for (tech of project.technologies; track tech) {
-							<span class="bg-sky-900 text-sky-300 px-2 py-1 rounded text-xs font-mono">{{tech}}</span>
-						}
+			<article class="group relative flex flex-col cursor-pointer w-full">
+
+				<!-- Image Container -->
+				<div
+					class="relative w-full aspect-[4/3] md:aspect-[16/10] flex justify-center items-center mb-4 md:mb-5 overflow-hidden rounded-[20px] bg-zinc-900 group-hover:scale-[1.02] transition-transform duration-500">
+					@if (project['image'] && project['image'] !== '/assets/image/logos/default.svg') {
+					<div class="absolute inset-0 flex items-center justify-center">
+						<img [src]="project['image']" [alt]="project.title" class="w-full h-full object-cover">
 					</div>
-					<div class="flex gap-4 justify-center mt-2">
-						@if (project.repoUrl) {
-							<a [href]="project.repoUrl" target="_blank" rel="noopener" class="text-xs text-sky-400 hover:underline">Repositorio</a>
-						}
+					} @else {
+					<!-- Fallback Pattern/Icon for minimal look -->
+					<div
+						class="absolute inset-0 flex items-center justify-center text-zinc-700 bg-zinc-950 transition-transform duration-700 group-hover:scale-110">
+						<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+							stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+							<rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+							<circle cx="9" cy="9" r="2" />
+							<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+						</svg>
+					</div>
+					}
+
+					<!-- Floating overlay links on hover -->
+					<div
+						class="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 bg-black/40 backdrop-blur-sm transition-all duration-500 z-20">
 						@if (project.liveUrl) {
-							<a [href]="project.liveUrl" target="_blank" rel="noopener" class="text-xs text-green-400 hover:underline">Ver online</a>
+						<a [href]="project.liveUrl" target="_blank" rel="noopener"
+							class="w-12 h-12 bg-zinc-900/80 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-zinc-700 hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
+							aria-label="Ver online">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+								<polyline points="15 3 21 3 21 9" />
+								<line x1="10" y1="14" x2="21" y2="3" />
+							</svg>
+						</a>
+						}
+						@if (project.repoUrl) {
+						<a [href]="project.repoUrl" target="_blank" rel="noopener"
+							class="w-12 h-12 bg-zinc-900/80 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-zinc-700 hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
+							aria-label="Código">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="m18 16 4-4-4-4" />
+								<path d="m6 8-4 4 4 4" />
+								<path d="m14.5 4-5 16" />
+							</svg>
+						</a>
 						}
 					</div>
 				</div>
+
+				<!-- Content section (Outside the card) -->
+				<div class="flex flex-col flex-1 relative z-10 px-1 mt-2">
+					<p class="text-[13px] md:text-sm text-zinc-400 font-medium mb-1.5 flex items-center gap-2">
+						@if(project.technologies && project.technologies.length > 0) {
+						{{project.technologies[0]}}
+						} @else {
+						Proyecto
+						}
+						<span class="w-1 h-1 rounded-full bg-zinc-600"></span>
+						5 min
+					</p>
+
+					<h3
+						class="text-xl md:text-[22px] font-bold text-white tracking-tight transition-colors duration-300 group-hover:text-zinc-300">
+						{{project.title}}
+					</h3>
+				</div>
+			</article>
 			}
 		</section>
 	</main>
-
-  <div></div>
+</div>

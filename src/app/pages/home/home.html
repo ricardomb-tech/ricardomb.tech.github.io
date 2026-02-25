@@ -45,16 +45,27 @@
           </div>
         </div>
 
-        <div class="mt-6 flex flex-wrap gap-4">
-          <button type="button"
-            class="inline-flex items-center justify-center rounded-full border border-slate-400 px-8 py-3 text-sm font-medium text-white">
-            Acerca de m&iacute;
-          </button>
+        <div class="mt-8 flex flex-wrap gap-4 lg:gap-6">
+          <ng-template #aboutIcon>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </ng-template>
+          <app-fancy-button label="Acerca de mí" variant="outline" routeLink="/about"
+            [iconTemplate]="aboutIcon"></app-fancy-button>
 
-          <button type="button"
-            class="inline-flex items-center justify-center rounded-full bg-sky-500 px-8 py-3 text-sm font-medium text-black">
-            Ver proyectos
-          </button>
+          <ng-template #projectsIcon>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </ng-template>
+          <app-fancy-button label="Ver proyectos" variant="outline" routeLink="/projects"
+            [iconTemplate]="projectsIcon"></app-fancy-button>
         </div>
       </div>
 
@@ -127,24 +138,26 @@
           <div class="grid gap-6 md:grid-cols-3 w-full max-w-6xl md:ml-16">
             <app-card-flip title="Productos digitales que escalan" subtitle="Arquitecturas pensadas para crecer"
               description="Aplicaciones web diseñadas para crecer sin perder rendimiento ni mantenibilidad."
-              [features]="['Angular', 'TypeScript', 'Buenas prácticas', 'Escalabilidad']"></app-card-flip>
+              [features]="['Angular', 'TypeScript', 'Buenas prácticas', 'Escalabilidad']"
+              glowColor="rgba(56, 189, 248, 0.5)"></app-card-flip>
 
             <app-card-flip title="Sistemas IoT conectando campo y nube" subtitle="Datos en tiempo casi real"
               description="Dispositivos, APIs y plataformas cloud trabajando juntos para monitorear y automatizar."
-              [features]="['IoT', 'MQTT/HTTP', 'Cloud', 'Monitoreo']"></app-card-flip>
+              [features]="['IoT', 'MQTT/HTTP', 'Cloud', 'Monitoreo']"
+              glowColor="rgba(168, 85, 247, 0.5)"></app-card-flip>
 
             <app-card-flip title="Procesos repetitivos automatizados" subtitle="Automatización con foco en negocio"
               description="Flujos manuales convertidos en servicios y dashboards para liberar tiempo de valor."
-              [features]="['Automatización', 'Dashboards', 'APIs', 'Productividad']"></app-card-flip>
+              [features]="['Automatización', 'Dashboards', 'APIs', 'Productividad']"
+              glowColor="rgba(52, 211, 153, 0.5)"></app-card-flip>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="relative flex flex-col gap-12 md:flex-row md:items-center pb-20"
-      aria-labelledby="project-hero-title">
+    <section class="relative flex flex-col gap-12 pb-20 w-full" aria-labelledby="project-hero-title">
 
-      <div class="space-y-8 mx-auto max-w-4xl text-center mt-16">
+      <div class="space-y-8 mx-auto max-w-4xl text-center mt-16 flex flex-col items-center">
         <p class="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
           Proyectos destacados
         </p>
@@ -153,14 +166,119 @@
           Soluciones digitales que he construido.
         </h2>
 
-        <p class="max-w-4xl text-base text-slate-400 md:text-xl">
+        <p class="max-w-2xl text-base text-slate-400 md:text-xl">
           Desde aplicaciones web hasta sistemas IoT, estos proyectos reflejan mi enfoque en resolver problemas reales
           con tecnología.
         </p>
       </div>
 
+      <!-- Bento Grid -->
+      <div class="w-full max-w-6xl mx-auto px-4 mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 auto-rows-[300px] md:auto-rows-[340px] gap-4 md:gap-6">
 
+          <!-- Bento Item 1: Large (Spans 2 cols) -->
+          <div
+            class="md:col-span-2 row-span-1 border border-zinc-800/80 bg-zinc-900/40 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden group hover:border-zinc-600 transition-colors duration-500">
 
+            <div
+              class="absolute -right-12 top-0 md:-top-10 md:right-0 p-8 z-0 transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-2 opacity-50 group-hover:opacity-100">
+              <div
+                class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-sky-500/20 to-transparent blur-2xl">
+              </div>
+            </div>
+
+            <div class="relative z-10 w-full md:w-3/4">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">Angular</span>
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">Firebase</span>
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">TypeScript</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Plataforma de Gestión Empresarial</h3>
+              <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
+                Una solución integral para la administración de recursos y la optimización de flujos de trabajo en
+                empresas medianas. Arquitectura escalable y componentes reutilizables.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bento Item 2: Tall (Spans 2 rows) -->
+          <div
+            class="md:col-start-3 md:col-end-4 md:row-start-1 md:row-end-3 border border-zinc-800/80 bg-zinc-900/40 rounded-3xl p-8 flex flex-col relative overflow-hidden group hover:border-zinc-600 transition-colors duration-500">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-purple-500/10 via-transparent to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+            </div>
+
+            <div
+              class="relative z-10 flex-1 flex flex-col justify-start items-center opacity-30 group-hover:opacity-80 transition-all duration-700 group-hover:scale-110 mb-8 mt-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" class="text-purple-400">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <polyline points="10 10 12 12 14 10"></polyline>
+              </svg>
+            </div>
+
+            <div class="relative z-10 mt-auto">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">IoT</span>
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">Node.js</span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3 tracking-tight">Monitoreo IoT en Real-Time</h3>
+              <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
+                Sistema de telemetría para dispositivos geolocalizados en campo con latencia mínima, visualización
+                interactiva y reportes automatizados.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bento Item 3: Small 1 -->
+          <div
+            class="md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 border border-zinc-800/80 bg-zinc-900/40 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden group hover:border-zinc-600 transition-colors duration-500">
+            <div
+              class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-emerald-500/10 to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+            </div>
+            <div class="relative z-10 w-full">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">Java</span>
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">Spring
+                  Boot</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 tracking-tight">API Gateway & Microservicios</h3>
+              <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
+                Arquitectura backend transaccional procesando gran concurrencia de peticiones.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bento Item 4: Small 2 -->
+          <div
+            class="md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3 border border-zinc-800/80 bg-zinc-900/40 rounded-3xl p-8 flex flex-col justify-end relative overflow-hidden group hover:border-zinc-600 transition-colors duration-500">
+            <div
+              class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-amber-500/10 to-transparent z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+            </div>
+            <div class="relative z-10 w-full">
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="text-xs font-medium px-3 py-1 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-300">React
+                  Native</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2 tracking-tight">App Móvil de Logística</h3>
+              <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
+                Rastreo de paquetes mediante códigos QR y actualización de estatus.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
   </main>

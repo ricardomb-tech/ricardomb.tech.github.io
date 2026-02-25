@@ -1,36 +1,79 @@
-<footer class="footer-container">
-  <div class="footer-main">
-    <div class="footer-brand">
-      <div class="footer-logo">RM</div>
-      <div class="footer-desc">
-        <strong>Portafolio personal</strong><br>
-        <span class="footer-powered">Desarrollado por RicardoMB</span>
+<footer class="w-full bg-[#080808] border-t border-zinc-900 pt-16 pb-8 px-6 font-sans text-zinc-400">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
+
+      <!-- Brand & Description -->
+      <div class="md:col-span-5 lg:col-span-4 flex flex-col gap-6">
+        <div class="flex items-center gap-3">
+          <img src="assets/image/logos/rm.png" alt="RM Logo"
+            class="w-10 h-10 rounded-xl object-contain bg-white p-0.5" />
+          <span class="text-white font-medium tracking-tight">Ricardo Martinez</span>
+        </div>
+        <p class="text-[15px] leading-relaxed text-zinc-500 font-light max-w-sm">
+          Diseñando y desarrollando soluciones de software y sistemas IoT con foco en calidad, rendimiento y
+          mantenibilidad.
+        </p>
+      </div>
+
+      <!-- Spacer for Desktop -->
+      <div class="hidden lg:block lg:col-span-2"></div>
+
+      <!-- Links -->
+      <div class="md:col-span-7 lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-8">
+
+        <!-- Navigation -->
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white font-medium text-sm tracking-wide">Navegación</h4>
+          <nav class="flex flex-col gap-3 text-[14px] font-light">
+            <a href="/" class="hover:text-white transition-colors duration-200">Inicio</a>
+            <a href="/about" class="hover:text-white transition-colors duration-200">Sobre mí</a>
+            <a href="/projects" class="hover:text-white transition-colors duration-200">Proyectos</a>
+            <a href="/experience" class="hover:text-white transition-colors duration-200">Experiencia</a>
+          </nav>
+        </div>
+
+        <!-- Contact -->
+        <div class="flex flex-col gap-4">
+          <h4 class="text-white font-medium text-sm tracking-wide">Contacto</h4>
+          <nav class="flex flex-col gap-3 text-[14px] font-light">
+            <a href="mailto:ricardomb.tech@gmail.com" class="hover:text-white transition-colors duration-200">Email</a>
+            <a href="https://github.com/ricardomb-tech" target="_blank" rel="noopener"
+              class="hover:text-white transition-colors duration-200 flex items-center gap-1.5">
+              GitHub <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="opacity-50">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/ricardomb" target="_blank" rel="noopener"
+              class="hover:text-white transition-colors duration-200 flex items-center gap-1.5">
+              LinkedIn <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="opacity-50">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </nav>
+        </div>
+
       </div>
     </div>
-    <div class="footer-links">
-      <div>
-        <div class="footer-title">ENLACES</div>
-        <a href="/" class="footer-link">Inicio</a>
-        <a href="/about" class="footer-link">Sobre mí</a>
-        <a href="/projects" class="footer-link">Proyectos</a>
-        <a href="/experience" class="footer-link">Experiencia</a>
-      </div>
-      <div>
-        <div class="footer-title">CONTACTO</div>
-        <a href="mailto:ricardomb.tech@gmail.com" class="footer-link">Email</a>
-        <a href="https://github.com/ricardomb-tech" target="_blank" class="footer-link">GitHub</a>
-        <a href="https://linkedin.com/in/ricardomb" target="_blank" class="footer-link">LinkedIn</a>
+
+    <!-- Divider -->
+    <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent opacity-50 mb-8"></div>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-zinc-600 font-light">
+      <p>&copy; 2026 RicardoMB. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-1">
+        <span>Desarrollado en</span>
+        <span class="text-zinc-400 font-medium">Angular</span>
       </div>
     </div>
-    <div class="footer-newsletter">
-      <div class="footer-title">Suscríbete</div>
-      <form class="footer-form" autocomplete="off">
-        <input type="email" placeholder="Tu email" class="footer-input" required />
-        <button type="submit" class="footer-btn">Enviar</button>
-      </form>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>&copy; 2026 RicardoMB. Todos los derechos reservados.</span>
+
   </div>
 </footer>

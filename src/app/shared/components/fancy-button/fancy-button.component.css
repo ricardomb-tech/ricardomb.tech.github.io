@@ -42,9 +42,10 @@
   display: block;
   font-weight: 900;
   overflow: hidden;
-  padding: 0.9rem 2.5rem;
+  padding: 1.1rem 2.5rem;
   position: relative;
   text-transform: uppercase;
+  width: 100%;
 }
 
 .btn-53:hover {
@@ -59,9 +60,7 @@
 }
 
 .btn-53 .original {
-  display: grid;
   inset: 0;
-  place-content: center;
   position: absolute;
   background: #fff;
   color: #000;
@@ -73,7 +72,7 @@
 }
 
 .btn-53 .letters {
-  display: inline-flex;
+  /* Using Tailwind classes in the template. Hide display here */
 }
 
 .btn-53 .letters span {

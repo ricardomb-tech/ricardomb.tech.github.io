@@ -37,6 +37,7 @@ export class CardFlipComponent {
     'Tailwind CSS',
     'Kokonut UI',
   ]);
+  readonly glowColor = input<string>('rgba(148,163,184,0.5)');
 
   readonly isFlipped = signal(false);
 

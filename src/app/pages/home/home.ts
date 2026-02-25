@@ -2,19 +2,20 @@ import { Component, signal, inject } from '@angular/core';
 import { DOCUMENT, NgOptimizedImage } from '@angular/common';
 import { CardFlipComponent } from '../../shared/components/card-flip/card-flip.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
+import { FancyButtonComponent } from '../../shared/components/fancy-button/fancy-button.component';
 import { Skill, Technologies, FeaturedProject } from '../../core/models/portfolio.models';
 
 @Component({
   selector: 'app-home',
-  imports: [NgOptimizedImage, CardFlipComponent, HeaderComponent ],
+  imports: [NgOptimizedImage, CardFlipComponent, HeaderComponent, FancyButtonComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
   private readonly document = inject(DOCUMENT);
 
-  readonly skills= signal<Skill[]>([
-     {
+  readonly skills = signal<Skill[]>([
+    {
       id: 1,
       name: 'Desarrollo Frontend',
       description: 'Experiencia con Angular, TypeScript y Tailwind CSS.',
@@ -26,7 +27,7 @@ export class Home {
     },
   ]);
 
-  readonly technologies= signal<Technologies[]>([
+  readonly technologies = signal<Technologies[]>([
     { id: 1, name: 'Angular', category: 'Frontend' },
     { id: 2, name: 'TypeScript', category: 'Frontend' },
     { id: 3, name: 'Tailwind CSS', category: 'Frontend' },

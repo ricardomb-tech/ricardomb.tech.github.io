@@ -1,14 +1,15 @@
-<div class="bg-black text-white min-h-screen pt-16 md:pt-20 overflow-x-hidden">
-
+<div
+  class="bg-[#080808] text-zinc-300 min-h-screen pt-16 md:pt-20 overflow-x-hidden font-sans selection:bg-zinc-800 selection:text-white pb-8 md:pb-12">
   <app-header></app-header>
+  <main class="w-full max-w-7xl mx-auto px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-12">
+    <h1 class="sr-only">Ricardo Martinez Banda - Desarrollador de Software, Ingeniero Backend y Full-Stack</h1>
 
-  <!-- Contenido principal -->
-  <main class="mx-auto max-w-7xl px-4 pt-12 pb-20 md:pt-4">
+    <!-- Hero Header Profile Section -->
     <section
       class="relative flex flex-col gap-12 md:gap-8 md:flex-row md:items-start pb-4 w-screen md:ml-[calc(-46vw+50%)]"
-      aria-labelledby="about-hero-title">
+      aria-label="Presentación principal">
       <!-- Columna texto -->
-      <div class="w-full md:basis-[40rem] md:flex-none space-y-6 md:pr-4 md:mt-16">
+      <div class="w-full md:basis-[40rem] md:flex-none space-y-8 md:pr-12 md:-mt-8 px-8 md:px-2">
         <!-- Encabezado fijo para que no afecte al párrafo -->
         <div class="flex items-baseline gap-2 whitespace-nowrap h-[3.5rem] md:h-[4rem] lg:h-[4.5rem]">
           <app-shimmer-text [text]="'Ricardo Martinez es'"
@@ -17,7 +18,7 @@
         </div>
 
         <div class="space-y-6">
-          <p class="text-xl md:text-2xl lg:text-3xl text-gray-400">
+          <p class="text-xl md:text-2xl leading-relaxed text-zinc-400 font-light">
             Soy un desarrollador de software con una pasión por crear soluciones innovadoras y eficientes. Con una
             sólida formación en programación y experiencia en diversos proyectos, me especializo en el desarrollo de
             aplicaciones web y móviles. Mi enfoque se centra en la calidad del código, la usabilidad y la experiencia
@@ -26,83 +27,201 @@
 
 
 
-          <p class="text-xl md:text-2xl lg:text-3xl text-gray-400">
+          <p class="text-xl md:text-2xl leading-relaxed text-zinc-400 font-light">
             A lo largo de mi carrera, he trabajado en una variedad de proyectos, desde pequeñas aplicaciones hasta
             sistemas complejos, utilizando tecnologías modernas y metodologías ágiles. Mi objetivo es seguir creciendo
             como profesional, aprendiendo nuevas habilidades y contribuyendo a proyectos que tengan un impacto positivo
             en la vida de las personas.
           </p>
 
-          <div class="flex flex-wrap gap-4 pt-4">
+          <div class="flex flex-wrap gap-4 lg:gap-6 mt-24 w-full ">
+            <ng-template #resumeIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <line x1="10" y1="9" x2="8" y2="9" />
+              </svg>
+            </ng-template>
             <app-fancy-button label="Resume" variant="outline"
-              href="https://drive.google.com/file/d/1gTaH2jY1yuk5HwA5mqg1P9NFPvC36VVM/view?usp=sharing"></app-fancy-button>
+              href="https://drive.google.com/file/d/1gTaH2jY1yuk5HwA5mqg1P9NFPvC36VVM/view?usp=sharing"
+              [iconTemplate]="resumeIcon"></app-fancy-button>
+            <ng-template #linkedinIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </ng-template>
             <app-fancy-button label="LinkedIn" variant="outline"
-              href="https://www.linkedin.com/in/ricardo-martinez-banda/"></app-fancy-button>
+              href="https://www.linkedin.com/in/ricardo-martinez-banda/"
+              [iconTemplate]="linkedinIcon"></app-fancy-button>
+            <ng-template #githubIcon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </ng-template>
+            <app-fancy-button label="GitHub" variant="outline" href="https://github.com/ricardomb-tech"
+              [iconTemplate]="githubIcon"></app-fancy-button>
           </div>
         </div>
       </div>
 
       <!-- Columna imagen -->
-      <div class="flex-1 flex justify-center items-center">
+      <div class="flex-1 flex justify-center items-center md:-mt-12">
         <div class="relative">
           <div class="hero-photo-wrapper" [style.mask-image]="'radial-gradient(circle, black 0%, transparent 70%)'">
-            <img ngSrc="/assets/image/foto4.png" width="700" height="900" alt="Retrato profesional en blanco y negro"
-              class="hero-photo" priority />
+            <img ngSrc="/assets/image/foto4.png" width="700" height="900"
+              alt="Ricardo Martinez, Desarrollador de Software - Retrato profesional" class="hero-photo" priority />
           </div>
         </div>
       </div>
 
     </section>
 
-    <section class="space-y-8 pt-0 -mt-24">
-      <h2
-        class="text-2xl md:text-3xl lg:text-4xl font-extralight font-normal tracking-tight text-white flex items-center gap-4 justify-center"
-        style="font-family: 'Montserrat Hairline', 'Roboto Thin', 'Arial', sans-serif; font-weight: 200;">
-        <span class="flex-1 h-px bg-gray-600"></span>
-        Habilidades
-        <span class="flex-1 h-px bg-gray-600"></span>
-      </h2>
-      <div class="flex justify-center items-start w-full py-8 gap-12">
-        <div class="flex flex-col items-center">
-
+    <div class="w-full flex justify-center py-2 mb-4 space-y-2 md:pr-4">
+      <div class="mx-auto flex justify-center items-center" style="max-width: 1600px; width: 100%;">
+        <!-- Demo BounceCards Angular component -->
+        <div class="flex justify-center -mt-16 md:-mt-32 lg:-mt-[150px]">
+          <app-bounce-cards [images]="bounceImages()" [containerWidth]="1500" [containerHeight]="620"
+            [animationDelay]="1.1" [animationStagger]="0.09" [easeType]="'elastic.out(1, 0.3)'"
+            [transformStyles]="bounceTransforms()" [enableHover]="true"></app-bounce-cards>
         </div>
-        <div class="mx-auto flex justify-center items-center" style="max-width: 1600px; width: 100%;">
-          <!-- Demo BounceCards Angular component -->
-          <div class="flex justify-center -mt-34">
-            <app-bounce-cards [images]="bounceImages()" [containerWidth]="1500" [containerHeight]="620"
-              [animationDelay]="1.1" [animationStagger]="0.09" [easeType]="'elastic.out(1, 0.3)'"
-              [transformStyles]="bounceTransforms()" [enableHover]="true"></app-bounce-cards>
+      </div>
+    </div>
+
+    <div class="w-full">
+      <!-- Main Content Block -->
+      <div class="w-full space-y-6">
+
+        <!-- Perfil Profesional -->
+        <section class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16"
+          aria-label="Perfil Profesional">
+          <!-- Icon Cloud (Izquierda) -->
+          <div class="flex-none flex justify-center items-center">
+            <app-icon-cloud [images]="iconCloudImages" [iconSize]="80"
+              style="width:400px; height:400px; display:block;"></app-icon-cloud>
           </div>
-        </div>
-      </div>
 
-      <!-- Habilidades blandas -->
-      <div class="flex flex-col items-start gap-6 -mt-30">
-        <div class="flex flex-col gap-2 text-2xl md:text-3xl lg:text-4xl font-light tracking-tight">
-          <span class="text-white font-bold">Tengo habilidades en</span>
-          <app-flip-words [words]="['trabajo en equipo', 'comunicación', 'manejo de frustraciones', 'adaptabilidad']"
-            [duration]="3000"
-            [extraClasses]="'text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-sky-400'"></app-flip-words>
-        </div>
-        <p class="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl">
-          Estas habilidades blandas me permiten colaborar eficazmente, comunicarme con claridad, adaptarme a los cambios
-          y superar desafíos en entornos dinámicos, aportando siempre una actitud positiva y resiliente a cada proyecto.
-        </p>
-      </div>
-
-      <!-- Habilidades técnicas: nube de íconos -->
-      <div class="flex flex-row gap-12 mt-6 ml-6 items-start">
-        <!-- Icon Cloud -->
-        <div class="flex flex-col items-start gap-4">
-          <app-icon-cloud [images]="iconCloudImages" [iconSize]="80"
-            style="width:400px; height:400px; display:block;"></app-icon-cloud>
-        </div>
-        <!-- Lista de tecnologías alineada a la derecha -->
-        <div class="flex flex-col items-end justify-end w-full pr-4">
-            <div class="w-full flex justify-center">
-              <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl text-white mb-2 text-center">Tecnologías</h1>
+          <!-- Texto (Derecha) -->
+          <div class="flex-1 space-y-6">
+            <h2 class="text-4xl tracking-tight font-medium text-white flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-zinc-500"></span> Perfil Profesional
+            </h2>
+            <div class="space-y-4 text-xl md:text-2xl leading-relaxed text-zinc-400 font-light">
+              <p>
+                Ingeniero de Sistemas enfocado en desarrollo de software con <strong
+                  class="text-zinc-200 font-medium">Java/Spring Boot, PHP/Laravel y Node.js/TypeScript</strong>.
+                Experiencia en arquitecturas basadas en microservicios, contenedores Docker y bases de datos
+                relacionales
+                (PostgreSQL, MySQL).
+              </p>
+              <p>
+                Capacidad demostrada para atender clientes, analizar tickets de soporte, reproducir errores reportados y
+                aplicar hotfixes en ambientes productivos. Participación activa en el ciclo completo de desarrollo:
+                desde
+                diseño de soluciones hasta despliegue en producción.
+              </p>
+              <p>
+                Conocimientos en infraestructura cloud (AWS) y automatización con Terraform. Orientado al aprendizaje
+                continuo, el trabajo colaborativo y adaptación rápida a nuevas tecnologías.
+              </p>
             </div>
-          <app-bubble-tech-list [technologies]="[
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div
+          class="w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent my-16 md:mt-16 md:mb-8">
+        </div>
+
+        <!-- Habilidades -->
+        <section class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16 w-full justify-between"
+          aria-label="Habilidades">
+
+          <div class="flex-1 space-y-8 md:mb-2 md:mt-2">
+            <h2 class="text-4xl tracking-tight font-medium text-white flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-zinc-500"></span> Habilidades
+            </h2>
+            <ul class="flex flex-col gap-6 text-xl md:text-2xl text-zinc-400 font-light">
+              <li class="flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-zinc-500 shrink-0">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                <span>Desarrollo de Software Full-Stack</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-zinc-500 shrink-0">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                <span>Análisis de Datos y Reportes</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-zinc-500 shrink-0">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                <span>Gestión de Proyectos Ágiles</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-zinc-500 shrink-0">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                <span>Resolución de Problemas Técnicos</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-zinc-500 shrink-0">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                <span>Inteligencia Artificial Aplicada</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="text-zinc-500 shrink-0">
+                  <path d="M5 12l5 5L20 7" />
+                </svg>
+                <span>Trabajo Colaborativo en Equipo</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="flex-none flex justify-center items-center">
+            <app-interactive-globe style="width: 500px; height: 500px; display: block;"></app-interactive-globe>
+          </div>
+
+        </section>
+
+        <!-- Divider -->
+        <div
+          class="w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent my-16 md:mt-16 md:mb-8">
+        </div>
+
+        <!-- Tecnologías -->
+        <section class="flex flex-col items-center justify-center w-full" aria-label="Tecnologías">
+          <h2 class="font-bold text-4xl md:text-5xl text-white mb-8 text-center tracking-tight">Tecnologías</h2>
+          <div class="flex flex-col items-center justify-center w-full">
+            <app-bubble-tech-list [technologies]="[
+            'Java',
+            'Spring Boot',
+
+            'PHP',
+            'Laravel',
             'TypeScript',
             'Angular',
             'JavaScript (ES6+)',
@@ -118,14 +237,85 @@
             'MongoDB',
             'PostgreSQL'
           ]" />
+          </div>
+
+        </section>
+
+        <!-- Divider -->
+        <div
+          class="w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent my-16 md:mt-16 md:mb-8">
         </div>
+
+        <!-- Educación y Certificaciones -->
+        <section
+          class="flex flex-col lg:flex-row items-start gap-12 lg:gap-24 w-full max-w-5xl mx-auto justify-between pb-6"
+          aria-label="Educación y Certificaciones">
+
+          <!-- Educación (Izquierda) -->
+          <div class="flex-1 space-y-8">
+            <h2 class="text-3xl md:text-4xl tracking-tight font-medium text-white flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-zinc-500"></span> Educación
+            </h2>
+
+            <div class="space-y-8">
+              <div>
+                <h3 class="text-xl md:text-2xl font-medium text-zinc-200">Ingeniería de Sistemas</h3>
+                <p class="text-lg text-zinc-500">Universidad del Sinú</p>
+                <p class="text-sm text-zinc-600 mt-1">Ago 2025</p>
+              </div>
+
+              <div>
+                <h3 class="text-xl md:text-2xl font-medium text-zinc-200">Tecnólogo Desarrollo de Sistemas</h3>
+                <p class="text-lg text-zinc-500">SENA</p>
+                <p class="text-sm text-zinc-600 mt-1">Feb 2024</p>
+              </div>
+
+              <div>
+                <h3 class="text-xl md:text-2xl font-medium text-zinc-200">Bachiller Académico</h3>
+                <p class="text-lg text-zinc-500">Institución Educativa Benicio Agudelo</p>
+                <p class="text-sm text-zinc-600 mt-1">Dic 2017</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificaciones (Derecha) -->
+          <div class="flex-1 space-y-8">
+            <h2 class="text-3xl md:text-4xl tracking-tight font-medium text-white flex items-center gap-3">
+              <span class="w-2 h-2 rounded-full bg-zinc-500"></span> Certificaciones
+            </h2>
+
+            <ul class="space-y-4 font-light">
+              <li><a href="https://coursera.org/share/a26e666273bd6c4c30bc695fc329ebb0" target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-lg md:text-xl text-zinc-400 hover:text-white hover:underline transition-colors block leading-snug">Soporte
+                  de TI de Google - Coursera</a></li>
+              <li><a href="https://www.hackerrank.com/certificates/3906c12fdceb" target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-lg md:text-xl text-zinc-400 hover:text-white hover:underline transition-colors block leading-snug">SQL
+                  (Basic) - HackerRank</a></li>
+              <li><a href="https://www.hackerrank.com/certificates/iframe/65aee4cc49d2" target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-lg md:text-xl text-zinc-400 hover:text-white hover:underline transition-colors block leading-snug">Angular
+                  (Basic) - HackerRank</a></li>
+              <li><a href="https://drive.google.com/file/d/1e4KaPGRjN02qX6RHHfNWCRJP3Ck9aEyx/view?usp=drive_link"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-lg md:text-xl text-zinc-400 hover:text-white hover:underline transition-colors block leading-snug">Testing
+                  & Quality Assurance</a></li>
+              <li><a href="https://drive.google.com/file/d/1pIw0nKTj1stqru7jzlKZ0-9KqtpfMSBV/view?usp=sharing"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-lg md:text-xl text-zinc-400 hover:text-white hover:underline transition-colors block leading-snug">Fundamentos
+                  de Azure</a></li>
+              <li><a href="https://drive.google.com/file/d/1TeLNj0XTun_7svPI6oK2wkgmdcOBcvDR/view?usp=sharing"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-lg md:text-xl text-zinc-400 hover:text-white hover:underline transition-colors block leading-snug">Azure
+                  Compute Services</a></li>
+            </ul>
+          </div>
+        </section>
       </div>
-    </section>
 
-    <section>
 
-    </section>
 
+    </div>
   </main>
-
 </div>
