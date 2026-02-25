@@ -74,7 +74,7 @@ export class Projects {
   }
 
   getImageForProject(project: any): string | undefined {
-    return project.image || '/assets/image/logos/default.svg';
+    return project.image || 'assets/image/logos/default.svg';
   }
 
   startCarousel() {

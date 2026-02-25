@@ -130,7 +130,7 @@
 				<!-- Image Container -->
 				<div
 					class="relative w-full aspect-[4/3] md:aspect-[16/10] flex justify-center items-center mb-4 md:mb-5 overflow-hidden rounded-[20px] bg-zinc-900 group-hover:scale-[1.02] transition-transform duration-500">
-					@if (project['image'] && project['image'] !== '/assets/image/logos/default.svg') {
+					@if (project['image'] && project['image'] !== 'assets/image/logos/default.svg') {
 					<div class="absolute inset-0 flex items-center justify-center">
 						<img [src]="project['image']" [alt]="project.title" class="w-full h-full object-cover">
 					</div>

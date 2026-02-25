@@ -10,10 +10,10 @@ export class PortfolioData {
   private http = inject(HttpClient);
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>('/assets/data/projects.json');
+    return this.http.get<Project[]>('assets/data/projects.json');
   }
 
   getExperience(): Observable<Experience[]> {
-    return this.http.get<Experience[]>('/assets/data/experience.json');
+    return this.http.get<Experience[]>('assets/data/experience.json');
   }
 }
