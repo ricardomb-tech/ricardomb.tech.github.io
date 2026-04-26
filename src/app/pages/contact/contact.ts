@@ -1,17 +1,28 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../shared/components/header/header.component';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, HeaderComponent],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Contact {
+export class Contact implements OnInit {
   private fb = inject(FormBuilder);
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.updateTags({
+      title: 'Contacto',
+      description: 'Ponte en contacto con Ricardo Martinez Banda para proyectos de desarrollo de software, IoT o colaboraciones.',
+      url: '/contact'
+    });
+  }
 
   // WhatsApp config
   private readonly phoneNumber = '573135352743'; // Assuming Colombia (+57) based on standard LATAM numbering 

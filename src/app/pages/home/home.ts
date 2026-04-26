@@ -1,9 +1,10 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, signal, inject, OnInit } from '@angular/core';
 import { DOCUMENT, NgOptimizedImage } from '@angular/common';
 import { CardFlipComponent } from '../../shared/components/card-flip/card-flip.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { FancyButtonComponent } from '../../shared/components/fancy-button/fancy-button.component';
 import { Skill, Technologies, FeaturedProject } from '../../core/models/portfolio.models';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,17 @@ import { Skill, Technologies, FeaturedProject } from '../../core/models/portfoli
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
+export class Home implements OnInit {
   private readonly document = inject(DOCUMENT);
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.updateTags({
+      title: 'Home',
+      description: 'Portafolio profesional de Ricardo Martinez Banda, Ingeniero de Sistemas especializado en Software e IoT.',
+      url: '/home'
+    });
+  }
 
   readonly skills = signal<Skill[]>([
     {

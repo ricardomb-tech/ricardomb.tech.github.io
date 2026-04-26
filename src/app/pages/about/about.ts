@@ -1,4 +1,4 @@
-import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { ABOUT_3D_GALLERY } from './about.3d-gallery.data';
 import { NgOptimizedImage } from '@angular/common';
 import { HeaderComponent } from '../../shared/components/header/header.component';
@@ -11,6 +11,7 @@ import { IconCloudComponent } from "../../shared/components/icon-cloud/icon-clou
 import { BubbleTechListComponent } from '../../shared/components/bubble-tech-list';
 import { InteractiveGlobeComponent } from '../../shared/components/interactive-globe/interactive-globe.component';
 import { NgFor } from '@angular/common';
+import { SeoService } from '../../core/services/seo.service';
 
 @Component({
   selector: 'app-about',
@@ -22,7 +23,17 @@ import { NgFor } from '@angular/common';
     HeaderComponent, NgOptimizedImage, ShimmerTextComponent, TypewriterTitleComponent, FancyButtonComponent, BounceCardsComponent, IconCloudComponent, BubbleTechListComponent, InteractiveGlobeComponent
   ]
 })
-export class About {
+export class About implements OnInit {
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.updateTags({
+      title: 'Acerca de mí',
+      description: 'Conoce más sobre la trayectoria de Ricardo Martinez Banda como Ingeniero de Sistemas y su enfoque en soluciones tecnológicas.',
+      url: '/about'
+    });
+  }
+
   about3dGallery = ABOUT_3D_GALLERY;
 
   features = [

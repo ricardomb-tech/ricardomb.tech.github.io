@@ -88,25 +88,32 @@
     <div class="w-full flex justify-center py-2 mb-4 space-y-2 md:pr-4">
       <div class="mx-auto flex justify-center items-center" style="max-width: 1600px; width: 100%;">
         <!-- Demo BounceCards Angular component -->
-        <div class="flex justify-center -mt-16 md:-mt-32 lg:-mt-[150px]">
-          <app-bounce-cards [images]="bounceImages()" [containerWidth]="1500" [containerHeight]="620"
-            [animationDelay]="1.1" [animationStagger]="0.09" [easeType]="'elastic.out(1, 0.3)'"
-            [transformStyles]="bounceTransforms()" [enableHover]="true"></app-bounce-cards>
+        <div class="flex justify-center -mt-16 md:-mt-32 lg:-mt-[150px] w-full overflow-hidden">
+          <app-bounce-cards 
+            [images]="bounceImages()" 
+            [containerWidth]="1200" 
+            [containerHeight]="500"
+            class="w-full max-w-full"
+            [animationDelay]="1.1" 
+            [animationStagger]="0.09" 
+            [easeType]="'elastic.out(1, 0.3)'"
+            [transformStyles]="bounceTransforms()" 
+            [enableHover]="true"></app-bounce-cards>
         </div>
       </div>
     </div>
 
     <div class="w-full">
       <!-- Main Content Block -->
-      <div class="w-full space-y-6">
+      <div class="w-full space-y-12 md:space-y-24">
 
         <!-- Perfil Profesional -->
         <section class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16"
           aria-label="Perfil Profesional">
           <!-- Icon Cloud (Izquierda) -->
-          <div class="flex-none flex justify-center items-center">
-            <app-icon-cloud [images]="iconCloudImages" [iconSize]="80"
-              style="width:400px; height:400px; display:block;"></app-icon-cloud>
+          <div class="flex-none flex justify-center items-center w-full lg:w-auto">
+            <app-icon-cloud [images]="iconCloudImages" [iconSize]="60"
+              class="w-full max-w-[320px] md:max-w-[400px] aspect-square block"></app-icon-cloud>
           </div>
 
           <!-- Texto (Derecha) -->
@@ -201,8 +208,8 @@
             </ul>
           </div>
 
-          <div class="flex-none flex justify-center items-center">
-            <app-interactive-globe style="width: 500px; height: 500px; display: block;"></app-interactive-globe>
+          <div class="flex-none flex justify-center items-center w-full lg:w-auto">
+            <app-interactive-globe class="w-full max-w-[320px] md:max-w-[500px] aspect-square block"></app-interactive-globe>
           </div>
 
         </section>

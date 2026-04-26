@@ -11,11 +11,11 @@
 
 .hero-photo {
 	display: block;
-	max-height: 820px;
+	max-height: 50vh;
 	height: auto;
 	width: auto;
 	border-radius: 9999px;
-	transform: scale(1.25);
+	transform: scale(1.1);
 	transform-origin: center;
 		/* Circular fade from center to transparent using CSS mask */
 		-webkit-mask-image: radial-gradient(
@@ -34,7 +34,8 @@
 
 @media (min-width: 768px) {
 	.hero-photo {
-		max-height: 900px;
+		max-height: 80vh;
+		transform: scale(1.25);
 	}
 }
 

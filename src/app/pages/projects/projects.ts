@@ -1,7 +1,8 @@
-import { Component, computed, effect, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, computed, effect, signal, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { PortfolioData } from '../../core/services/portfolio-data';
 import { Project } from '../../core/models/portfolio.models';
 import { HeaderComponent } from "../../shared/components/header/header.component";
+import { SeoService } from '../../core/services/seo.service';
 
 type CarouselSlide = {
   image: string;
@@ -19,8 +20,17 @@ type CarouselSlide = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [HeaderComponent]
 })
-export class Projects {
+export class Projects implements OnInit {
   private portfolioData = new PortfolioData();
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.updateTags({
+      title: 'Proyectos',
+      description: 'Explora los proyectos de software e IoT desarrollados por Ricardo Martinez Banda, desde apps móviles hasta arquitecturas backend.',
+      url: '/projects'
+    });
+  }
 
   readonly projects = signal<Project[]>([]);
   readonly activeIndex = signal(0);
